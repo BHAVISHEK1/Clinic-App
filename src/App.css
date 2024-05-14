@@ -1,14 +1,59 @@
+/* Scrollbar  */
+
+
+/* Style for WebKit-based browsers (Chrome, Safari) */
+::-webkit-scrollbar {
+  width: 5px; /* Width of the scrollbar */
+  height: 5px;
+  border-radius: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: #ffffff; /* Track color */
+  border-radius: 7px;
+}
+
+::-webkit-scrollbar-thumb {
+  background : #d9e8f6; /* Thumb color */
+  border-radius: 7px; /* Rounded corners */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555; /* Thumb color on hover */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*Hero */
 
 #mainbuttons button {
 
    border-radius: 16px;
-   border: 2px solid;
+   border: 1px solid grey;
    color: cornflowerblue;
    border-radius: 7px;
    margin: 10px;
+   padding: 7px;
 
- }
+}
 
 
  button:active {
@@ -106,7 +151,7 @@
    padding: 10px;
 
    border-radius: 5px;
-   background-color: #f9f9f9;
+   background-color: #d9e8f6;
    display: flex;
    flex-wrap: wrap;
    justify-content: space-between;
@@ -119,6 +164,9 @@
  .right-partition {
    flex-basis: 50%;
  }
+
+
+
 
  #pform label {
    display: block;
@@ -183,7 +231,7 @@
    padding: 10px;
 
    border-radius: 5px;
-   background-color: #f9f9f9;
+   background-color: #d9e8f6;
    display: flex;
    flex-wrap: wrap;
    justify-content: space-between;
@@ -192,13 +240,14 @@
   
  }
 
- #showallpatients ol {
+ #showallpatients ul {
    padding: 0;
    margin: 0;
    display: grid;
    grid-template-columns: repeat(4, 1fr);
    /* 3 columns */
    grid-gap: 10px;
+   list-style: none;
  }
 
  #showallpatients li {
@@ -210,14 +259,16 @@
    /* Add cursor pointer for better interaction */
  }
 
- #showallpatients li:nth-child(odd) {
-   background-color: #f0f0f0;
+ #showallpatients li:nth-child(even) {
+   background-color: #eaedf0;
    /* Alternate row color */
  }
 
+
+ 
  #showallpatients h2 {
    margin-bottom: 10px;
-   color: #333;
+   color: #c61111;
  }
 
 
@@ -229,16 +280,16 @@
    border-radius: 5px;
    margin-bottom: 20px;
 
-   max-width: 50%;
+   max-width: 52%;
    margin: 0 auto;
    padding: 10px;
 
    border-radius: 5px;
-   background-color: #f9f9f9;
+   background-color: #d9e8f6;
    display: flex;
    flex-wrap: wrap;
    justify-content: space-between;
-   box-shadow: 2px 3px grey;
+   
    align-items: flex-start;
  }
 
@@ -301,12 +352,12 @@
  #searchRes {
    margin-top: 20px;
    max-height: 300px;
-   max-width: 60%;
+   max-width: 52%;
    /* Set max height to enable scrolling */
    overflow-y: auto;
    /* Enable vertical scrolling */
 
-   max-width: 60%;
+   
    margin: 0 auto;
    padding: 10px;
 
@@ -338,7 +389,7 @@
  }
 
  #searchRes li:nth-child(odd) {
-   background-color: #f0f0f0;
+   background-color:#d9e8f6;
    /* Alternate row color */
  }
 
@@ -346,3 +397,26 @@
    margin-bottom: 10px;
    color: #333;
  }
+
+ mh{
+
+  background-color: #ea9393;
+
+ }
+
+ #medical-history {
+  color: lightcoral;
+  
+}
+
+#csvbtn{
+
+    color: white;
+    margin-bottom:10px;
+    margin-left:2px;
+    padding: 8px;
+    border-radius: 7px;
+    border: none;
+    background-color: #04e117;
+
+}
