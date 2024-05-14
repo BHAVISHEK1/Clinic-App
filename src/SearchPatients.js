@@ -48,61 +48,64 @@ const SearchPatients = () => {
     };
 
     return (
-        <div>
-           
-            <form onSubmit={handleSubmit}>
-                <div>
-                    <label>
-                        Search by:
-                        <select value={searchType} onChange={handleSearchTypeChange}>
-                            <option value="patient">Patient</option>
-                            <option value="doctor">Doctor</option>
-                        </select>
-                    </label>
-                </div>
-                <div>
-                    <label>
-                        {searchType === 'patient' ? 'Patient Name:' : 'Doctor Name:'}
-                        {searchType === 'doctor' ? (
-                            <select value={searchQuery} onChange={handleSearchQueryChange} required>
-                                <option value="">Select Doctor</option>
-                                <option value="Dr Ruchi">Dr Ruchi</option>
-                                <option value="Dr Renu">Dr Renu</option>
-                                {doctorOptions.map((doctor) => (
-                                    <option key={doctor._id} value={doctor.name}>
-                                        {doctor.name}
-                                    </option>
-                                ))}
-                            </select>
-                        ) : (
-                            <input
-                                type="text"
-                                value={searchQuery}
-                                onChange={handleSearchQueryChange}
-                                required
-                            />
-                        )}
-                    </label>
-                </div>
-                <button type="submit">Search</button>
-            </form>
-            <div id="searchRes">
-                <h3>Search Results:</h3>
-                <ul>
-                    {searchResults.map((patient) => (
-                        <li key={patient._id}>
-                            Name: {patient.firstName} {patient.lastName}<br />
-                            Contact: {patient.contacts}<br />
-                            Age: {patient.age}<br />
-                            Date: {patient.dateOfentry} <br />
-                            Medical History: {patient.medicalHistory}<br />
-                            Doctor: {patient.doctorName}<br />
-                        </li>
-                    ))}
-                </ul>
-                {/* <h2>Patients Diagnosed with {patient.doctorName} </h2> */}
-            </div>
+        <div className="container">
+    <form onSubmit={handleSubmit} className="search-form">
+        <div className="form-group">
+            <label>
+                Search by:
+                <select value={searchType} onChange={handleSearchTypeChange}>
+                    <option value="patient">Patient</option>
+                    <option value="doctor">Doctor</option>
+                </select>
+            </label>
         </div>
+        <div className="form-group">
+            <label>
+                {searchType === 'patient' ? 'Patient Name:' : 'Doctor Name:'}
+                {searchType === 'doctor' ? (
+                    <select value={searchQuery} onChange={handleSearchQueryChange} required>
+                        <option value="">Doctor</option>
+                        <option value="Dr Ruchi">Dr Ruchi</option>
+                        <option value="Dr Renu">Dr Renu</option>
+                        {doctorOptions.map((doctor) => (
+                            <option key={doctor._id} value={doctor.name}>
+                                {doctor.name}
+                            </option>
+                        ))}
+                    </select>
+                ) : (
+                    <input
+                        type="text"
+                        value={searchQuery}
+                        onChange={handleSearchQueryChange}
+                        required
+                    />
+                )}
+            </label>
+        </div>
+        <button type="submit" className="btn-search">Search</button>
+    </form>
+    <div id="searchRes" className="search-results">
+        
+        
+        <h3>Search Results:</h3>
+
+
+        <ul>
+            {searchResults.map((patient) => (
+                <li key={patient._id}>
+                    Name: {patient.firstName} {patient.lastName}<br />
+                    Contact: {patient.contacts}<br />
+                    Age: {patient.age}<br />
+                    Date: {patient.dateOfentry} <br />
+                    Medical History: {patient.medicalHistory}<br />
+                    Doctor: {patient.doctorName}<br />
+                </li>
+            ))}
+        </ul>
+    </div>
+</div>
+
     );
 };
 

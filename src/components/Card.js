@@ -1,5 +1,5 @@
 import React from 'react';
-import '../App.css'; // Import the CSS file
+import '../App.css'; 
 import Button from './Button';
 
 const Card = ({ children, bg = 'bg-gray-100' }) => {

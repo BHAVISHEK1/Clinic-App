@@ -57,22 +57,7 @@ const PatientForm = () => {
             <div className="left-partition">
                 <input placeholder="First Name" type="text" name="firstName" value={formData.firstName} onChange={handleChange} required />
                 <input placeholder="Last Name" type="text" name="lastName" value={formData.lastName} onChange={handleChange} />
-                <input placeholder="Contact" type="text" name="contacts" value={formData.contacts} onChange={handleChange} />
-                <input placeholder="Age" type="number" name="age" value={formData.age} onChange={handleChange} />
-            </div>
-
-            <button type="submit">Submit</button>
-            
-            <div className="right-partition">
-
-                <select name="doctorName" value={formData.doctorName} onChange={handleChange}>
-                    <option value="null">Doctor</option>
-                    <option value="Dr Ruchi">Dr Ruchi</option>
-                    <option value="Dr Renu">Dr Renu</option>
-                </select>
-
-                <input id="date" placeholder="Date" type="date" name="dateOfentry" value={formData.dateOfentry} onChange={handleChange} />
-
+               
                 <div id="dropd">
                     <input type="checkbox" name="bp" checked={formData.medicalHistory.includes('bp')} onChange={handleCheckboxChange} /> BP  <br />
                     <input type="checkbox" name="act" checked={formData.medicalHistory.includes('act')} onChange={handleCheckboxChange} /> ACT <br />
@@ -81,7 +66,33 @@ const PatientForm = () => {
                     <input type="checkbox" name="dm" checked={formData.medicalHistory.includes('dm')} onChange={handleCheckboxChange} /> Diabetes   <br />
                     <input type="checkbox" name="pregnancy" checked={formData.medicalHistory.includes('pregnancy')} onChange={handleCheckboxChange} /> Pregnant<br />
                 </div>
+            
             </div>
+
+            
+            <div className="right-partition">
+
+                
+            <input placeholder="Contact" type="text" name="contacts" value={formData.contacts} onChange={handleChange} />
+                <input placeholder="Age" type="number" name="age" value={formData.age} onChange={handleChange} />
+                
+
+                <input id="date" placeholder="Date" type="date" name="dateOfentry" value={formData.dateOfentry} onChange={handleChange} />
+               
+               
+                <select name="doctorName" value={formData.doctorName} onChange={handleChange}>
+                    <option value="null">Doctor</option>
+                    <option value="Dr Ruchi">Dr Ruchi</option>
+                    <option value="Dr Renu">Dr Renu</option>
+                </select>
+               
+               
+               
+               
+                <button type="submit">Submit</button>
+                
+            </div>
+
         </form>
     );
 };
