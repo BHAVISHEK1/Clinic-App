@@ -1,8 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-const ShowAllPatients = ({ allPatients }) => {
+const ShowAllPatients = () => {
+    const [allPatients, setAllPatients] = useState([]);
     const [expandedPatient, setExpandedPatient] = useState(null);
+
+    useEffect(() => {
+        const fetchAllPatients = async () => {
+            try {
+                const response = await axios.get('https://clinic-backend-4.onrender.com/api/patients/all');
+                setAllPatients(response.data);
+            } catch (error) {
+                console.error('Error fetching all patients:', error);
+            }
+        };
+        fetchAllPatients();
+    }, []);
 
     const handlePatientClick = (patientId) => {
         if (expandedPatient === patientId) {
@@ -12,25 +25,10 @@ const ShowAllPatients = ({ allPatients }) => {
         }
     };
 
-    const exportToCSV = async () => {
-        try {
-            const response = await axios.get('https://clinic-backend-4.onrender.com/all/csv', { responseType: 'blob' });
-            const url = window.URL.createObjectURL(new Blob([response.data]));
-            const link = document.createElement('a');
-            link.href = url;
-            link.setAttribute('download', 'patients.csv');
-            document.body.appendChild(link);
-            link.click();
-        } catch (error) {
-            console.error('Error exporting to CSV:', error);
-        }
-    };
-
     return (
         <div id="showallpatients">
-            <button id="csvbtn" onClick={exportToCSV}>Export to CSV</button>
             <ul>
-                {allPatients.sort((a, b) => (a.firstName + ' ' + a.lastName).localeCompare(b.firstName + ' ' + b.lastName)).map(patient => (
+                {allPatients.map(patient => (
                     <li key={patient._id}>
                         <div onClick={() => handlePatientClick(patient._id)}>
                             {patient.firstName} {patient.lastName}
