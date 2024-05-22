@@ -14,7 +14,7 @@ const ShowAllPatients = ({ allPatients }) => {
 
     const exportToCSV = async () => {
         try {
-            const response = await axios.get('/api/patients/all/csv', { responseType: 'blob' });
+            const response = await axios.get('https://clinic-backend-4.onrender.com/all/csv', { responseType: 'blob' });
             const url = window.URL.createObjectURL(new Blob([response.data]));
             const link = document.createElement('a');
             link.href = url;

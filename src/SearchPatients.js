@@ -12,7 +12,7 @@ const SearchPatients = () => {
         // Fetch the list of doctors when the component mounts
         const fetchDoctors = async () => {
             try {
-                const response = await axios.get('/api/doctors');
+                const response = await axios.get('https://clinic-backend-4.onrender.com/api/doctors');
                 setDoctorOptions(response.data);
             } catch (error) {
                 console.error('Error fetching doctors:', error);
@@ -36,9 +36,9 @@ const SearchPatients = () => {
         try {
             let endpoint;
             if (searchType === 'patient') {
-                endpoint = `/api/patients/search?firstName=${searchQuery.toLowerCase()}`;
+                endpoint = `https://clinic-backend-4.onrender.com/api/patients/search?firstName=${searchQuery.toLowerCase()}`;
             } else if (searchType === 'doctor') {
-                endpoint = `/api/patients/search?doctorName=${searchQuery}`;
+                endpoint = `https://clinic-backend-4.onrender.com/api/patients/search?doctorName=${searchQuery}`;
             }
 
             const response = await axios.get(endpoint);
@@ -117,4 +117,4 @@ const SearchPatients = () => {
     );
 };
 
-export default SearchPatients; 
+export default SearchPatients;
