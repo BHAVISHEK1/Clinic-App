@@ -27,6 +27,7 @@ const ShowAllPatients = () => {
 
     return (
         <div id="showallpatients">
+            <p>Click on Patient name to see details</p>
             <ul>
                 {allPatients.map(patient => (
                     <li key={patient._id}>
