@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import './App.css';
-import 'react-toastify/dist/ReactToastify.css';
-import { ToastContainer, toast } from 'react-toastify';
+// import 'react-toastify/dist/ReactToastify.css';
+// import { ToastContainer, toast } from 'react-toastify';
 
 const PatientForm = () => {
     const [formData, setFormData] = useState({
@@ -36,18 +36,6 @@ const PatientForm = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         console.log('Form submitted', formData); // Debugging line
-
-        const { firstName,contacts,age} = formData;
-
-        if (firstName === "") {
-          toast.error("First name is Required !")
-        } else if (contacts.length > 10) {
-          toast.error("Enter Valid Mobile!f")
-        }else if (age > 100) {
-            toast.error("Enter Valid Mobile!f")
-        }
-         else {
-          console.log("Patient Added");
     
         try {
             await axios.post('https://clinic-backend-4.onrender.com/api/patients', formData);
@@ -92,10 +80,10 @@ const PatientForm = () => {
                 </select>
                 <button type="submit">Submit</button>
             </div>
-            <ToastContainer position="top-center" />
+           
         </form>
         
     );
-}};
+};
 
 export default PatientForm;
