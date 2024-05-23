@@ -52,8 +52,8 @@
 
 @media (max-width: 600px) {
     #showallpatients {
-        width: 90%;
-        background-color: #c61111; /* Red background for mobile devices */
+        max-width: 90%;
+        /* background-color: #c61111; Red background for mobile devices */
     }
 }
 
