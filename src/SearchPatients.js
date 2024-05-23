@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import './SearchPatients.css'
 
 const SearchPatients = () => {
     const [searchType, setSearchType] = useState('patient');

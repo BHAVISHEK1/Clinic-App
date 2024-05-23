@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import './ShowAllPatients.css'
 
 const ShowAllPatients = () => {
     const [allPatients, setAllPatients] = useState([]);
@@ -9,7 +10,8 @@ const ShowAllPatients = () => {
         const fetchAllPatients = async () => {
             try {
                 const response = await axios.get('https://clinic-backend-4.onrender.com/api/patients/all');
-                setAllPatients(response.data);
+                const sortedPatients = response.data.sort((a, b) => a.firstName.localeCompare(b.firstName));
+                setAllPatients(sortedPatients);
             } catch (error) {
                 console.error('Error fetching all patients:', error);
             }
