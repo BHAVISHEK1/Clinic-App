@@ -96,6 +96,7 @@ const SearchPatients = () => {
                 </div>
                 <button type="submit" className="btn-search">Search</button>
             </form>
+            
             <div id="searchRes" className="search-results">
                 <h3>Search Results:</h3>
                 {searchError && <p>{searchError}</p>}

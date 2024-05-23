@@ -74,3 +74,19 @@
 #pform button:hover {
     background-color: #0056b3;
 }
+
+@media (max-width: 600px) {
+    #pform,
+    #pform select
+    {
+        max-width: 90%;
+        /* background-color: #c61111; Red background for mobile devices */
+    }
+}
+
+@media (max-width: 600px) {
+    .left-partition,
+.right-partition {
+    flex-basis: 50%;
+}
+}
