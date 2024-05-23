@@ -1,3 +1,37 @@
+#inn{
+    max-width: 30%;
+    width: calc(90% - 20px);
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 7px;
+
+}
+
+#patname{
+    
+    max-width: 100%;
+ 
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 7px;
+
+
+}
+
+#docs{
+    max-width: 100%;
+ 
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 7px;
+
+}
+
+
+
 .search-form {
    
     padding: 20px;
@@ -8,7 +42,7 @@
     margin: 0 auto;
     padding: 20px;
 
-    border-radius: 5px;
+   
     background-color: #d9e8f6;
     display: flex;
     flex-wrap: wrap;
@@ -18,12 +52,15 @@
 }
 
 .form-group {
-    margin-bottom: 10px;
+    padding: 10p;
 }
 
 .form-group label {
     display: block;
     margin-bottom: 5px;
+    color: rgb(234, 134, 134);
+    font-weight:bolder;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 .btn-search {

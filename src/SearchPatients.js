@@ -63,8 +63,8 @@ const SearchPatients = () => {
             <form onSubmit={handleSubmit} className="search-form">
                 <div className="form-group">
                     <label>
-                        Search by:
-                        <select value={searchType} onChange={handleSearchTypeChange}>
+                        Search  :  
+                         <select id="patname" value={searchType} onChange={handleSearchTypeChange}>
                             <option value="patient">Patient</option>
                             <option value="doctor">Doctor</option>
                         </select>
@@ -74,10 +74,11 @@ const SearchPatients = () => {
                     <label>
                         {searchType === 'patient' ? 'Name : ' : ''}
                         {searchType === 'doctor' ? (
-                            <select value={searchQuery} onChange={handleSearchQueryChange} required>
+                            <select id="docs" value={searchQuery} onChange={handleSearchQueryChange} required>
                                 <option value="">Doctor</option>
                                 <option value="Dr Ruchi">Dr Ruchi</option>
                                 <option value="Dr Renu">Dr Renu</option>
+                                <option value="Other">Other</option>
                                 {doctorOptions.map((doctor) => (
                                     <option key={doctor._id} value={doctor.name}>
                                         {doctor.name}
@@ -85,7 +86,7 @@ const SearchPatients = () => {
                                 ))}
                             </select>
                         ) : (
-                            <input
+                            <input id="inn"
                                 type="text"
                                 value={searchQuery}
                                 onChange={handleSearchQueryChange}
@@ -96,7 +97,7 @@ const SearchPatients = () => {
                 </div>
                 <button type="submit" className="btn-search">Search</button>
             </form>
-            
+
             <div id="searchRes" className="search-results">
                 <h3>Search Results:</h3>
                 {searchError && <p>{searchError}</p>}

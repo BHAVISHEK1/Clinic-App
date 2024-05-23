@@ -177,6 +177,9 @@ const PatientForm = () => {
                     <option value="null">Doctor</option>
                     <option value="Dr Ruchi">Dr Ruchi</option>
                     <option value="Dr Renu">Dr Renu</option>
+                    <option value="Other">Other</option>
+                    
+                    
                 </select>
                 <button id="subbtn" type="submit">Submit</button>
             </div>

@@ -105,6 +105,19 @@ h2 {
 }
 
 
+@media (max-width: 600px) {
+  h2
+  {
+      
+      
+      font-size:medium;
+      margin-left: 20px;
+      /* background-color: #c61111; Red background for mobile devices */
+  }
+}
+
+
+
 
 /* CARD */
 
