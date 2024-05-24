@@ -55,5 +55,22 @@
     }
 }
 
+#edtbtn{
+    padding: 3px 9px;
+    border-radius: 7px;
+    border: solid rgb(102, 182, 232);
+}
 
+#delbtn
+{
 
+    border: 1px solid #ccc;
+    padding: 3px 9px;
+    border-radius: 7px;
+    border: solid rgb(239, 130, 130);
+
+}
+
+button{
+    margin: 2px;
+}
