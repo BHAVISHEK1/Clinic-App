@@ -1,13 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import Modal from 'react-modal';
 import './ShowAllPatients.css';
-import EditPatientForm from './EditPatientForm.js'; // Import the edit form component
+import EditPatientForm from './EditPatientForm'; // Import the edit form component
+
+Modal.setAppElement('#root'); // Set the app root for accessibility
 
 const ShowAllPatients = () => {
     const [allPatients, setAllPatients] = useState([]);
     const [expandedPatient, setExpandedPatient] = useState(null);
     const [message, setMessage] = useState('');
     const [editingPatient, setEditingPatient] = useState(null);
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
     useEffect(() => {
         const fetchAllPatients = async () => {
@@ -43,13 +47,20 @@ const ShowAllPatients = () => {
 
     const handleEditClick = (patient) => {
         setEditingPatient(patient);
+        setIsModalOpen(true);
     };
 
     const handleEditSubmit = (updatedPatient) => {
         setAllPatients(allPatients.map(patient => patient._id === updatedPatient._id ? updatedPatient : patient));
         setEditingPatient(null);
+        setIsModalOpen(false);
         alert(`Patient ${updatedPatient.firstName} updated`);
         setTimeout(() => setMessage(''), 3000); // Clear message after 3 seconds
+    };
+
+    const closeModal = () => {
+        setIsModalOpen(false);
+        setEditingPatient(null);
     };
 
     return (
@@ -71,14 +82,24 @@ const ShowAllPatients = () => {
                                     <p>Medical History: {patient.medicalHistory.join(', ')}</p>
                                 </div>
                                 <p>Doctor: {patient.doctorName}</p>
+                                <div className="button-container">
                                 <button id="edtbtn" onClick={() => handleEditClick(patient)}>Edit</button>
                                 <button id="delbtn" onClick={() => handleDelete(patient._id, patient.firstName)}>Delete</button>
+                                </div>
                             </div>
                         )}
                     </li>
                 ))}
             </ul>
-            {editingPatient && <EditPatientForm patient={editingPatient} onSubmit={handleEditSubmit} />}
+            <Modal
+                isOpen={isModalOpen}
+                onRequestClose={closeModal}
+                contentLabel="Edit Patient"
+                className="modal"
+                overlayClassName="overlay"
+            >
+                {editingPatient && <EditPatientForm patient={editingPatient} onSubmit={handleEditSubmit} onCancel={closeModal} />}
+            </Modal>
         </div>
     );
 };
