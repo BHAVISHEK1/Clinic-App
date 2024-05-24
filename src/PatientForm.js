@@ -25,17 +25,17 @@ const PatientForm = () => {
         const newErrors = { firstName: '', contacts: '', age: '' };
 
         if (!formData.firstName) {
-            newErrors.firstName = 'First Name is Required';
+            alert("First Name is required")
             isValid = false;
         }
 
         if (!/^\d{10}$/.test(formData.contacts)) {
-            newErrors.contacts = 'Enter a Valid 10 digit number';
+            alert("Enter a Valid 10 digit number")
             isValid = false;
         }
 
         if (formData.age < 1 || formData.age > 101) {
-            newErrors.age = 'Enter a valid age not exceeding 101yrs';
+            alert("Enter a Valid age not exceeding 101 years")
             isValid = false;
         }
 

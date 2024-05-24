@@ -134,7 +134,7 @@
 
 #searchRes ul {
     list-style-type: none;
-    padding: 0;
+    padding: 10px;
     margin: 0;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -163,18 +163,7 @@
 
 }
 
-/* 
-#csvbtn {
 
-    color: white;
-    margin-bottom: 10px;
-    margin-left: 2px;
-    padding: 8px;
-    border-radius: 7px;
-    border: none;
-    background-color: #04e117;
-
-} */
 
 @media (max-width: 600px) {
     .search-form ,
@@ -186,3 +175,6 @@
 
 
 
+li {
+    border: 2px solid red;
+}
