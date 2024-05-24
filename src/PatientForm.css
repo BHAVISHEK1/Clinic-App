@@ -6,7 +6,7 @@
     padding: 10px;
     padding-left: 10px;
     border-radius: 5px;
-    background-color: #f6e0ec;
+    background-color:#d9e8f6;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -80,7 +80,7 @@
     #pform select
     {
         max-width: 90%;
-        /* background-color: #c61111; Red background for mobile devices */
+    
     }
 }
 

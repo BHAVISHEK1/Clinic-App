@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import './App.css';
-import './PatientForm.css'
+import './PatientForm.css';
 
 const PatientForm = () => {
     const [formData, setFormData] = useState({
@@ -34,7 +34,7 @@ const PatientForm = () => {
             isValid = false;
         }
 
-        if ( formData.age < 1 || formData.age > 101) {
+        if (formData.age < 1 || formData.age > 101) {
             newErrors.age = 'Enter a valid age not exceeding 101yrs';
             isValid = false;
         }
@@ -178,8 +178,6 @@ const PatientForm = () => {
                     <option value="Dr Ruchi">Dr Ruchi</option>
                     <option value="Dr Renu">Dr Renu</option>
                     <option value="Other">Other</option>
-                    
-                    
                 </select>
                 <button id="subbtn" type="submit">Submit</button>
             </div>

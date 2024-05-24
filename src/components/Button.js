@@ -33,14 +33,12 @@ const Button = () => {
         setAllPatients(response.data);
       } catch (error) {
         console.error('Error fetching all patients:', error);
-        // Handle error
+      
       }
     };
 
     return (
         <>
-          
-    
           <div>
             <div id="mainbuttons" >
               <button onClick={handleAddPatientClick}>Add Patient</button>

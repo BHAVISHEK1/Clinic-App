@@ -36,12 +36,11 @@
     border-radius: 5px;
     background-color: #f9f9f9;
     cursor: pointer;
-    /* Add cursor pointer for better interaction */
 }
 
 #showallpatients li:nth-child(even) {
     background-color: #eaedf0;
-    /* Alternate row color */
+   
 }
 
 #showallpatients h2 {
@@ -53,7 +52,6 @@
 @media (max-width: 600px) {
     #showallpatients {
         max-width: 90%;
-        /* background-color: #c61111; Red background for mobile devices */
     }
 }
 

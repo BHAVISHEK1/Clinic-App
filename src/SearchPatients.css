@@ -151,15 +151,12 @@
 
 #searchRes li:nth-child(odd) {
     background-color: #d9e8f6;
-    /* Alternate row color */
 }
 
 #searchRes h3 {
     margin-bottom: 10px;
     color: #333;
 }
-
-
 
 #medical-history {
     color: lightcoral;

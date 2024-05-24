@@ -1,31 +1,26 @@
 /* Scrollbar  */
 
-
-/* Style for WebKit-based browsers (Chrome, Safari) */
 ::-webkit-scrollbar {
   width: 5px;
-  /* Width of the scrollbar */
   height: 5px;
   border-radius: 7px;
 }
 
 ::-webkit-scrollbar-track {
   background: #ffffff;
-  /* Track color */
   border-radius: 7px;
 }
 
 ::-webkit-scrollbar-thumb {
   background: #d9e8f6;
-  /* Thumb color */
   border-radius: 7px;
-  /* Rounded corners */
 }
 
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
-  /* Thumb color on hover */
 }
+
+
 
 
 /*Hero */
@@ -47,13 +42,14 @@ button:active {
 }
 
 
-
 .hero {
   background-color: #736de3;
   padding-top: 3rem;
   margin-bottom: 1rem;
   height: 60px;
 }
+
+
 
 .title {
 
@@ -107,15 +103,11 @@ h2 {
 
 @media (max-width: 600px) {
   h2
-  {
-      
-      
-      font-size:medium;
-      margin-left: 20px;
-      /* background-color: #c61111; Red background for mobile devices */
+  { 
+    font-size:medium;
+    margin-left: 20px;  
   }
 }
-
 
 
 

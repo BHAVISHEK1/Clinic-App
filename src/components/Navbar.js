@@ -1,7 +1,6 @@
 import React from 'react';
-//import { NavLink } from 'react-router-dom';
 import logo from '../assets/images/sutantra-seva-trust-logo.png';
-import '../App.css'; // Import the CSS file
+import '../App.css'; 
 
 const Navbar = () => {
   return (
@@ -9,14 +8,7 @@ const Navbar = () => {
       <div className='container'>
         <div className='navbar-container'>
           <div className='logo'>
-
-          <img className='logo-img' src={logo} alt='React Jobs' />
-          
-            {/* <NavLink className='logo-link' to='/'>
-              
-              <span className='logo-text'>React Jobs</span>
-            </NavLink> */}
-            
+            <img className='logo-img' src={logo} alt='React Jobs' />  
           </div>
           <h2>Sutantra Narayani Seva Trust</h2>
         </div>
