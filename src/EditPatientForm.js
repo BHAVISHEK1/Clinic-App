@@ -80,9 +80,16 @@ const EditPatientForm = ({ patient, onSubmit, onCancel }) => {
     return (
         <>
 
+        
+        
         <FaTimes id = "cross" onClick={onCancel} />
+        
+            <p id="title">Edit Patient  {formData.firstName} Details</p>
         <form id="pform" onSubmit={handleSubmit}>
            
+            
+
+
             <div className="left-partition">
                 <input
                     placeholder="First Name"
@@ -174,7 +181,7 @@ const EditPatientForm = ({ patient, onSubmit, onCancel }) => {
                     <option value="Dr Renu">Dr Renu</option>
                     <option value="Other">Other</option>
                 </select>
-                <button id="subbtn" type="submit">Submit</button>
+                <button id="subbtn" type="submit">Edit Details</button>
             </div>
         </form>
 

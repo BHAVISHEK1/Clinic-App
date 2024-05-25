@@ -98,7 +98,7 @@ const ShowAllPatients = () => {
                 {selectedPatient && (
                     <div id="pcard">
                         <i className="fa fa-times cancel-icon" onClick={closeDetailsModal}></i>
-                        <h2>{selectedPatient.firstName} {selectedPatient.lastName}</h2>
+                        <h1>{selectedPatient.firstName} {selectedPatient.lastName}</h1>
                         <h5><i className="fa-solid fa-phone" style={{color:"blue"}}></i> : <a href={`tel:${selectedPatient.contacts}`}>{selectedPatient.contacts}</a></h5>
                         <h5><i className="fa-solid fa-cake-candles" style={{color:"green"}}></i> : {selectedPatient.age}</h5>
                         <h5><i className="fa-solid fa-calendar-days calendar" style={{color:"blue"}}></i> : {formatDateTime(selectedPatient.dateOfentry)}</h5>
@@ -113,6 +113,7 @@ const ShowAllPatients = () => {
             </Modal>
 
             <Modal id="editmodal"
+                
                 isOpen={isEditModalOpen}
                 onRequestClose={closeEditModal}
                 contentLabel="Edit Patient"

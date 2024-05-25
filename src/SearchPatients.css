@@ -212,3 +212,28 @@ button{
 .button-containers button {
     flex: 1;
 }
+
+.modal{
+    position: absolute;
+        top: 50%;
+        left: 50%;
+        right: auto;
+        bottom: auto;
+        margin-right: -50%;
+        transform: translate(-50%, -50%);
+        width: 100%; /* Adjust width as needed */
+        height: 60%; /* Adjust height as needed */
+        max-width: 600px; /* Ensure it doesn't get too large */
+        max-height: 600px; /* Ensure it doesn't get too large */
+        padding: 10px;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        overflow: auto; /* Allows scrolling if content overflows */
+}
+
+@media screen and (max-width: 600px) {
+    .modal {
+        width:80%; 
+    }
+}

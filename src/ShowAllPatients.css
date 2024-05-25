@@ -93,6 +93,15 @@
     }
 
 
+
+    @media screen and (max-width: 600px) {
+        #editmodal {
+            width:80%; 
+        }
+    }
+
+
+
     #patdetails {
         position: absolute;
         top: 50%;
@@ -116,7 +125,9 @@
 
     @media screen and (max-width: 600px) {
         #patdetails {
-            width:80%; /* 90% width for smaller screens */
+            width:80%; 
+            height:60%;
+                /* 90% width for smaller screens */
             
         }
     }
@@ -180,8 +191,9 @@
         margin-right: 10%;
     }
     
-    h5{
-        font-size: large;
+    h1{
+       color: brown;
+       font-size:x-large
     }
 
     
@@ -192,6 +204,7 @@
     
     h5 {
         margin: 5px 0; /* Reduce the margin between details */
+        font-size: large;
     }
     
     .medhis {
