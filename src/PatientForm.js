@@ -11,7 +11,7 @@ const PatientForm = () => {
         lastName: '',
         contacts: '',
         age: '',
-        dateOfentry: '',
+        dateOfentry: '', // Initialize to empty string
         medicalHistory: [],
         doctorName: '',
     });
@@ -46,11 +46,21 @@ const PatientForm = () => {
     };
 
     const handleChange = (e) => {
-        const { name, value } = e.target;
-        setFormData((prevData) => ({
-            ...prevData,
-            [name]: value,
-        }));
+        const { name, value, type } = e.target;
+
+        if (type === 'date') {
+            // For date input, handle separately to set empty string if no date selected
+            setFormData((prevData) => ({
+                ...prevData,
+                [name]: value || '', // Set to empty string if no date selected
+            }));
+        } else {
+            // For other inputs, handle normally
+            setFormData((prevData) => ({
+                ...prevData,
+                [name]: value,
+            }));
+        }
     };
 
     const handleCheckboxChange = (e) => {
@@ -77,7 +87,7 @@ const PatientForm = () => {
                 lastName: '',
                 contacts: '',
                 age: '',
-                dateOfentry: '',
+                dateOfentry: '', // Reset date to empty string after submission
                 medicalHistory: [],
                 doctorName: '',
             });

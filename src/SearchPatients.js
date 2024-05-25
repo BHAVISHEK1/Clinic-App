@@ -74,14 +74,19 @@ const SearchPatients = () => {
         setIsModalOpen(false);
     };
 
-    const handleDelete = async (id) => {
-        try {
-            await axios.delete(`https://clinic-backend-4.onrender.com/api/patients/${id}`);
-            setSearchResults(prevResults => prevResults.filter(patient => patient._id !== id));
-            toast.success('Patient deleted successfully');
-        } catch (error) {
-            console.error('Error deleting patient:', error);
-            toast.error('Error deleting patient. Please try again later.');
+    const handleDelete = (id, firstName) => {
+        const isConfirmed = window.confirm(`Are you sure you want to delete ${firstName}?`);
+        if (isConfirmed) {
+            try {
+                axios.delete(`https://clinic-backend-4.onrender.com/api/patients/${id}`);
+                setSearchResults(prevResults => prevResults.filter(patient => patient._id !== id));
+                toast.success(`Patient ${firstName} deleted successfully`);
+            } catch (error) {
+                console.error('Error deleting patient:', error);
+                toast.error('Error deleting patient. Please try again later.');
+            }
+        } else {
+            toast.warning(`Deletion cancelled for ${firstName}`);
         }
     };
 
@@ -149,13 +154,12 @@ const SearchPatients = () => {
                 </form>
 
                 <div id="searchRes" className="search-results">
-                    <h3>Search Results:</h3>
+                    <h3>{`Showing ${searchResults.length} results for ${searchType === 'patient' ? 'Patient' : 'Doctor'}: ${searchQuery}`}</h3>
                     {searchError && <p>{searchError}</p>}
                     <ul>
                         {searchResults.map((patient) => (
                             <li key={patient._id} className="patient-card">
                                 <div className="patient-info">
-
                                     <i className="fa-solid fa-hospital-user" style={{ color: "grey" }} ></i> :  {patient.firstName} {patient.lastName}
                                     <br />
                                     <i className="fa-solid fa-phone" style={{ color: "blue" }}></i> :  {patient.contacts}
@@ -164,32 +168,27 @@ const SearchPatients = () => {
                                     <br />
                                     <i className="fa-solid fa-calendar-days calendar" style={{ color: "blue" }}></i> :  {patient.dateOfentry}
                                     <br />
-                                    <div className="medhis" >
+                                    <div className="medhis">
                                         <i className="fa-solid fa-book-medical" style={{ color: "red" }}></i> : {patient.medicalHistory}
                                     </div>
-
                                     <i className="fa-solid fa-user-doctor" style={{ color: "violet" }}></i> : {patient.doctorName}
                                     <br />
                                 </div>
                                 <div className="button-containers">
                                     <button id="edtbtns" onClick={() => handleEdit(patient)}>Edit</button>
-                                    <button id="delbtns" onClick={() => handleDelete(patient._id)}>Delete</button>
+                                    <button id="delbtns" onClick={() => handleDelete(patient._id, patient.firstName)}>Delete</button>
                                 </div>
                             </li>
                         ))}
                     </ul>
                 </div>
-
-
             </div>
 
             <Modal
-                isOpen={isModalOpen}
+                isOpen={isModalOpen}                
                 onRequestClose={handleCancelEdit}
                 contentLabel="Edit Patient"
                 className="modal"
-                
-
                 overlayClassName="overlay"
             >
                 {editingPatient && (
@@ -216,3 +215,4 @@ const SearchPatients = () => {
 };
 
 export default SearchPatients;
+

@@ -35,13 +35,18 @@ const ShowAllPatients = () => {
     };
 
     const handleDelete = async (patientId, patientFirstName) => {
-        try {
-            await axios.delete(`https://clinic-backend-4.onrender.com/api/patients/${patientId}`);
-            setAllPatients(allPatients.filter(patient => patient._id !== patientId));
-            toast.success(`Patient ${patientFirstName} deleted successfully`);
-        } catch (error) {
-            console.error('Error deleting patient:', error);
-            toast.error('Error deleting patient. Please try again later.');
+        const confirmDelete = window.confirm(`Are you sure you want to delete ${patientFirstName}?`);
+        if (confirmDelete) {
+            try {
+                await axios.delete(`https://clinic-backend-4.onrender.com/api/patients/${patientId}`);
+                setAllPatients(allPatients.filter(patient => patient._id !== patientId));
+                toast.success(`Patient ${patientFirstName} deleted successfully`);
+            } catch (error) {
+                console.error('Error deleting patient:', error);
+                toast.error('Error deleting patient. Please try again later.');
+            }
+        } else {
+            toast.warning(`Deletion cancelled for ${patientFirstName}`);
         }
     };
 
@@ -77,16 +82,23 @@ const ShowAllPatients = () => {
 
     return (
         <div id="showallpatients">
-            <p>Click on Patient name to see details</p>
-            <ul>
-                {allPatients.map(patient => (
-                    <li key={patient._id}>
-                        <div onClick={() => handlePatientClick(patient)}>
-                            {patient.firstName} {patient.lastName}
-                        </div>
-                    </li>
-                ))}
-            </ul>
+            {allPatients.length === 0 ? (
+                <p>Patient Database is empty</p>
+            ) : (
+                <>
+                    <p>{allPatients.length} Entries of patients</p>
+                    <p>Click on Patient name to see details</p>
+                    <ul>
+                        {allPatients.map(patient => (
+                            <li key={patient._id}>
+                                <div onClick={() => handlePatientClick(patient)}>
+                                    {patient.firstName} {patient.lastName}
+                                </div>
+                            </li>
+                        ))}
+                    </ul>
+                </>
+            )}
 
             <Modal id="patdetails"
                 isOpen={isDetailsModalOpen}
@@ -113,7 +125,6 @@ const ShowAllPatients = () => {
             </Modal>
 
             <Modal id="editmodal"
-                
                 isOpen={isEditModalOpen}
                 onRequestClose={closeEditModal}
                 contentLabel="Edit Patient"

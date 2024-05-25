@@ -97,6 +97,7 @@
     @media screen and (max-width: 600px) {
         #editmodal {
             width:80%; 
+            height:45%;
         }
     }
 

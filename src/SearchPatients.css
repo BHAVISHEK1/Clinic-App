@@ -253,6 +253,7 @@ button{
 @media screen and (max-width: 600px) {
     .modal {
         width:80%; 
+        height: 45%;
     }
 }
 
