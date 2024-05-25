@@ -100,9 +100,9 @@ const ShowAllPatients = () => {
                         <i className="fa fa-times cancel-icon" onClick={closeDetailsModal}></i>
                         <h1>{selectedPatient.firstName} {selectedPatient.lastName}</h1>
                         <h5><i className="fa-solid fa-phone" style={{color:"blue"}}></i> : <a href={`tel:${selectedPatient.contacts}`}>{selectedPatient.contacts}</a></h5>
-                        <h5><i className="fa-solid fa-cake-candles" style={{color:"green"}}></i> : {selectedPatient.age}</h5>
+                        <h5><i className="fa-solid fa-cake-candles" style={{color:"green"}}></i> : {selectedPatient.age} Years</h5>
                         <h5><i className="fa-solid fa-calendar-days calendar" style={{color:"blue"}}></i> : {formatDateTime(selectedPatient.dateOfentry)}</h5>
-                        <h5 className="medhis" style={{color:"red"}}><i className="fa-solid fa-book-medical" style={{color:"red"}}></i> : {selectedPatient.medicalHistory.join(', ')}</h5>
+                        <h5><i className="fa-solid fa-book-medical" style={{color:"red"}}></i> : {selectedPatient.medicalHistory.join(', ')}</h5>
                         <h5><i className="fa-solid fa-user-doctor" style={{color:"violet"}}></i> : {selectedPatient.doctorName}</h5>
                         <div className="button-container">
                             <button id="edtbtn" onClick={() => handleEditClick(selectedPatient)}>Edit</button>

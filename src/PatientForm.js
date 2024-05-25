@@ -182,7 +182,7 @@ const PatientForm = () => {
                         <option value="Dr Renu">Dr Renu</option>
                         <option value="Other">Other</option>
                     </select>
-                    <button id="subbtn" type="submit">Submit</button>
+                    <button id="subbtn" type="submit">Register Patient</button>
                 </div>
             </form>
             <ToastContainer  position="top-center"

@@ -6,7 +6,6 @@ import { ToastContainer, toast } from 'react-toastify'; // Import toast and Toas
 import 'react-toastify/dist/ReactToastify.css'; // Import the styles
 import EditPatientForm from './EditPatientForm';
 
-
 const SearchPatients = () => {
     const [searchType, setSearchType] = useState('patient');
     const [searchQuery, setSearchQuery] = useState('');
@@ -51,7 +50,8 @@ const SearchPatients = () => {
             const response = await axios.get(endpoint);
             setSearchResults(response.data.map(patient => ({
                 ...patient,
-                medicalHistory: patient.medicalHistory.join(', ')
+                medicalHistory: patient.medicalHistory.join(', '),
+                dateOfentry: formatDate(patient.dateOfentry)
             })));
             if (response.data.length === 0) {
                 toast.error('Patient not found');
@@ -94,6 +94,14 @@ const SearchPatients = () => {
         setEditingPatient(null);
         setIsModalOpen(false);
         toast.success(`Patient ${updatedPatient.firstName} updated successfully`);
+    };
+
+    const formatDate = (dateString) => {
+        const date = new Date(dateString);
+        const day = date.getDate().toString().padStart(2, '0');
+        const month = (date.getMonth() + 1).toString().padStart(2, '0');
+        const year = date.getFullYear();
+        return `${day}/${month}/${year}`;
     };
 
     return (
@@ -145,20 +153,24 @@ const SearchPatients = () => {
                     {searchError && <p>{searchError}</p>}
                     <ul>
                         {searchResults.map((patient) => (
-                            <li key={patient._id}>
-                                Name: {patient.firstName} {patient.lastName}
-                                <br />
-                                Contact: {patient.contacts}
-                                <br />
-                                Age: {patient.age}
-                                <br />
-                                Date: {patient.dateOfentry} <br />
-                                <div id="medical-history">
-                                    Medical History: {patient.medicalHistory}
+                            <li key={patient._id} className="patient-card">
+                                <div className="patient-info">
+
+                                    <i className="fa-solid fa-hospital-user" style={{ color: "grey" }} ></i> :  {patient.firstName} {patient.lastName}
+                                    <br />
+                                    <i className="fa-solid fa-phone" style={{ color: "blue" }}></i> :  {patient.contacts}
+                                    <br />
+                                    <i className="fa-solid fa-cake-candles" style={{ color: "green" }}></i> :  {patient.age} Years
+                                    <br />
+                                    <i className="fa-solid fa-calendar-days calendar" style={{ color: "blue" }}></i> :  {patient.dateOfentry}
+                                    <br />
+                                    <div className="medhis" >
+                                        <i className="fa-solid fa-book-medical" style={{ color: "red" }}></i> : {patient.medicalHistory}
+                                    </div>
+
+                                    <i className="fa-solid fa-user-doctor" style={{ color: "violet" }}></i> : {patient.doctorName}
                                     <br />
                                 </div>
-                                Doctor: {patient.doctorName}
-                                <br />
                                 <div className="button-containers">
                                     <button id="edtbtns" onClick={() => handleEdit(patient)}>Edit</button>
                                     <button id="delbtns" onClick={() => handleDelete(patient._id)}>Delete</button>
@@ -167,6 +179,8 @@ const SearchPatients = () => {
                         ))}
                     </ul>
                 </div>
+
+
             </div>
 
             <Modal
@@ -174,6 +188,8 @@ const SearchPatients = () => {
                 onRequestClose={handleCancelEdit}
                 contentLabel="Edit Patient"
                 className="modal"
+                
+
                 overlayClassName="overlay"
             >
                 {editingPatient && (
@@ -186,15 +202,15 @@ const SearchPatients = () => {
             </Modal>
 
             <ToastContainer
-             position="top-center"
-             autoClose={3000}
-             hideProgressBar={false}
-             newestOnTop={false}
-             closeOnClick
-             rtl={false}
-             pauseOnFocusLoss
-             draggable
-             pauseOnHover />
+                position="top-center"
+                autoClose={3000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover />
         </>
     );
 };

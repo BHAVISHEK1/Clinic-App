@@ -76,6 +76,11 @@
     background-color: #0056b3;
 }
 
+
+
+/*   SEARCH RESULTS*/
+/* SEARCH RESULTS */
+
 .search-results {
     background-color: #dedbdb;
     padding: 20px;
@@ -85,10 +90,6 @@
 .search-results ul {
     list-style: none;
     padding: 0;
-}
-
-.search-results ul li {
-    margin-bottom: 15px;
 }
 
 @media (max-width: 768px) {
@@ -109,19 +110,13 @@
     }
 }
 
-
 #searchRes {
     margin-top: 20px;
-    max-height: 300px;
+    max-height: 300px; /* Ensure there's enough height for content */
     max-width: 52%;
-    /* Set max height to enable scrolling */
-    overflow-y: auto;
-    /* Enable vertical scrolling */
-
-
+    overflow-y: auto; /* Enable vertical scrolling */
     margin: 0 auto;
     padding: 10px;
-
     border-radius: 5px;
     background-color: #f9f9f9;
     display: flex;
@@ -129,7 +124,6 @@
     justify-content: space-between;
     box-shadow: 2px 3px grey;
     align-items: flex-start;
-
 }
 
 #searchRes ul {
@@ -137,16 +131,19 @@
     padding: 10px;
     margin: 0;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    /* 3 columns */
-    grid-gap: 10px;
+    grid-template-columns: repeat(3, 1fr); /* 3 columns */
+    grid-gap: 20px; /* Increased grid-gap for better spacing */
 }
 
 #searchRes li {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     border: 1px solid #ddd;
     padding: 10px;
     border-radius: 5px;
     background-color: #f9f9f9;
+    box-sizing: border-box; /* Ensure padding and border are included in the element's total width and height */
 }
 
 #searchRes li:nth-child(odd) {
@@ -158,46 +155,67 @@
     color: #333;
 }
 
-#medical-history {
+.medhis {
     color: lightcoral;
-
 }
 
-
-
 @media (max-width: 600px) {
-    .search-form ,
-    #searchRes{
+    .search-form,
+    #searchRes {
         max-width: 90%;
-       
     }
 }
 
-
-
-ul li {
-    border: 2px solid red;
+.patient-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 
 
-#edtbtns{
-    padding: 3px 9px;
-    border-radius: 7px;
-    border: solid rgb(102, 182, 232);
-   
+
+.patient-info {
+    flex-grow: 1;
 }
 
-#delbtns
-{
-
-    border: 1px solid #ccc;
-    padding: 3px 5px;
+.patient-info i {
    
-    border-radius: 7px;
-    border: solid rgb(239, 130, 130);
- 
+    margin-bottom:4px;
+}
 
+
+
+.button-containers {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+
+/*POP UP*/
+
+#edtbtns, #delbtns {
+    padding: 5px 10px;
+    margin: 0 5px; /* Adjust margin between buttons if needed */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 50px; /* Set a fixed width for both buttons */
+    text-align: center; /* Center the text horizontally */
+    
+}
+
+#edtbtns {
+    background-color: #4CAF50;
+    color: white;
+    
+}
+
+#delbtns {
+    background-color: #f44336;
+    color: white;
+    margin-right: 10%;
 }
 
 button{

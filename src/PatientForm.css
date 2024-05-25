@@ -1,7 +1,7 @@
 /* aDDpaTIENTS */
 
 #pform {
-    max-width: 50%;
+    
     margin: 0 auto;
     padding: 10px;
     padding-left: 10px;
@@ -12,6 +12,7 @@
     justify-content: space-between;
     box-shadow: 2px 3px grey;
     align-items: flex-start;
+  
 
 }
 
