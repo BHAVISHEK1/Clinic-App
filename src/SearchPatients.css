@@ -255,3 +255,10 @@ button{
         width:80%; 
     }
 }
+
+@media screen and (max-width: 600px) {
+    #searchRes ul {
+    grid-template-columns: repeat(3, 1fr); /* 3 columns */
+    grid-gap: 20px; /* Increased grid-gap for better spacing */
+    }
+}
