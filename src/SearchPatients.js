@@ -159,9 +159,9 @@ const SearchPatients = () => {
                                 </div>
                                 Doctor: {patient.doctorName}
                                 <br />
-                                <div className="button-container">
-                                    <button id="edtbtn" onClick={() => handleEdit(patient)}>Edit</button>
-                                    <button id="delbtn" onClick={() => handleDelete(patient._id)}>Delete</button>
+                                <div className="button-containers">
+                                    <button id="edtbtns" onClick={() => handleEdit(patient)}>Edit</button>
+                                    <button id="delbtns" onClick={() => handleDelete(patient._id)}>Delete</button>
                                 </div>
                             </li>
                         ))}

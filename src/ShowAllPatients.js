@@ -81,28 +81,27 @@ const ShowAllPatients = () => {
                 ))}
             </ul>
 
-            <Modal
+            <Modal id=""
                 isOpen={isDetailsModalOpen}
                 onRequestClose={closeDetailsModal}
                 contentLabel="Patient Details"
                 className="modal"
                 overlayClassName="overlay"
             >
+                
                 {selectedPatient && (
-                    <div>
-                        <h2>{selectedPatient.firstName} {selectedPatient.lastName}</h2>
-                        <p>Contact: <a href={`tel:${selectedPatient.contacts}`}>{selectedPatient.contacts}</a></p>
-                        <p>Age: {selectedPatient.age}</p>
-                        <p>Date: {selectedPatient.dateOfentry}</p>
-                        <div id="medical-history">
-                            <p>Medical History: {selectedPatient.medicalHistory.join(', ')}</p>
-                        </div>
-                        <p>Doctor: {selectedPatient.doctorName}</p>
+                    <div id="pcard">
+                        <i className="fa fa-times cancel-icon" onClick={closeDetailsModal}></i>
+                        <h3>{selectedPatient.firstName} {selectedPatient.lastName}</h3>
+                        <h5><i className="fa-solid fa-mobile"></i> : <a href={`tel:${selectedPatient.contacts}`}>{selectedPatient.contacts}</a> </h5>
+                        <h5><i className="fa-solid fa-cake-candles"></i> : {selectedPatient.age}</h5>
+                        <h5><i className="fa-solid fa-calendar-days calendar"></i> : {selectedPatient.dateOfentry}</h5>
+                        <h5><i className="fa-solid fa-book-medical"></i> : {selectedPatient.medicalHistory.join(', ')}</h5>
+                        <h5><i className="fa-solid fa-user-doctor"></i>: {selectedPatient.doctorName} </h5>
                         <div className="button-container">
                             <button id="edtbtn" onClick={() => handleEditClick(selectedPatient)}>Edit</button>
                             <button id="delbtn" onClick={() => handleDelete(selectedPatient._id, selectedPatient.firstName)}>Delete</button>
                         </div>
-                        <button id="closebtn" onClick={closeDetailsModal}>Close</button>
                     </div>
                 )}
             </Modal>
@@ -133,3 +132,4 @@ const ShowAllPatients = () => {
 };
 
 export default ShowAllPatients;
+

@@ -175,6 +175,40 @@
 
 
 
-li {
+ul li {
     border: 2px solid red;
+}
+
+
+
+#edtbtns{
+    padding: 3px 9px;
+    border-radius: 7px;
+    border: solid rgb(102, 182, 232);
+   
+}
+
+#delbtns
+{
+
+    border: 1px solid #ccc;
+    padding: 3px 5px;
+   
+    border-radius: 7px;
+    border: solid rgb(239, 130, 130);
+ 
+
+}
+
+button{
+    margin: 1px;
+}
+
+.button-containers {
+    display: flex;
+    gap: 10px;
+}
+
+.button-containers button {
+    flex: 1;
 }
