@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './SearchPatients.css';
-import Modal from 'react-modal'; // Import Modal from react-modal
+import Modal from 'react-modal';
+import { ToastContainer, toast } from 'react-toastify'; // Import toast and ToastContainer
+import 'react-toastify/dist/ReactToastify.css'; // Import the styles
 import EditPatientForm from './EditPatientForm';
+
 
 const SearchPatients = () => {
     const [searchType, setSearchType] = useState('patient');
@@ -12,10 +15,9 @@ const SearchPatients = () => {
     const [searchError, setSearchError] = useState('');
     const [editingPatient, setEditingPatient] = useState(null);
     const [message, setMessage] = useState('');
-    const [isModalOpen, setIsModalOpen] = useState(false); // State to manage modal visibility
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
     useEffect(() => {
-        // Fetch the list of doctors when the component mounts
         const fetchDoctors = async () => {
             try {
                 const response = await axios.get('https://clinic-backend-4.onrender.com/api/doctors');
@@ -53,34 +55,34 @@ const SearchPatients = () => {
                 medicalHistory: patient.medicalHistory.join(', ')
             })));
             if (response.data.length === 0) {
-                setSearchError('Patient not found');
+                toast.error('Patient not found');
             } else {
                 setSearchError('');
             }
         } catch (error) {
             console.error('Error searching patients:', error);
-            // Handle error
+            toast.error('Error searching patients. Please try again later.');
         }
     };
 
     const handleEdit = (patient) => {
         setEditingPatient(patient);
-        setIsModalOpen(true); // Open the modal when editing
+        setIsModalOpen(true);
     };
 
     const handleCancelEdit = () => {
         setEditingPatient(null);
-        setIsModalOpen(false); // Close the modal when editing is canceled
+        setIsModalOpen(false);
     };
 
     const handleDelete = async (id) => {
         try {
             await axios.delete(`https://clinic-backend-4.onrender.com/api/patients/${id}`);
             setSearchResults(prevResults => prevResults.filter(patient => patient._id !== id));
-            setMessage('Patient deleted successfully');
+            toast.success('Patient deleted successfully');
         } catch (error) {
             console.error('Error deleting patient:', error);
-            // Handle error
+            toast.error('Error deleting patient. Please try again later.');
         }
     };
 
@@ -91,8 +93,8 @@ const SearchPatients = () => {
             )
         );
         setEditingPatient(null);
-        setIsModalOpen(false); // Close the modal after editing is submitted
-        alert(`Patient ${updatedPatient.firstName} updated`);
+        setIsModalOpen(false);
+        toast.success(`Patient ${updatedPatient.firstName} updated successfully`);
     };
 
     return (
@@ -168,7 +170,6 @@ const SearchPatients = () => {
                 </div>
             </div>
 
-            {/* Modal for editing patient */}
             <Modal
                 isOpen={isModalOpen}
                 onRequestClose={handleCancelEdit}
@@ -185,11 +186,16 @@ const SearchPatients = () => {
                 )}
             </Modal>
 
-            {message && (
-                <div className="message-container">
-                    <p className="message">{message}</p>
-                </div>
-            )}
+            <ToastContainer
+             position="top-center"
+             autoClose={3000}
+             hideProgressBar={false}
+             newestOnTop={false}
+             closeOnClick
+             rtl={false}
+             pauseOnFocusLoss
+             draggable
+             pauseOnHover />
         </>
     );
 };

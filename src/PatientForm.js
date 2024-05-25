@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { ToastContainer, toast } from 'react-toastify'; // Import toast and ToastContainer
+import 'react-toastify/dist/ReactToastify.css'; // Import the styles
 import './App.css';
 import './PatientForm.css';
 
@@ -25,17 +27,17 @@ const PatientForm = () => {
         const newErrors = { firstName: '', contacts: '', age: '' };
 
         if (!formData.firstName) {
-            alert("First Name is required")
+            toast.error("First Name is required");
             isValid = false;
         }
 
         if (!/^\d{10}$/.test(formData.contacts)) {
-            alert("Enter a Valid 10 digit number")
+            toast.error("Enter a Valid 10 digit number");
             isValid = false;
         }
 
         if (formData.age < 1 || formData.age > 101) {
-            alert("Enter a Valid age not exceeding 101 years")
+            toast.error("Enter a Valid age not exceeding 101 years");
             isValid = false;
         }
 
@@ -79,109 +81,120 @@ const PatientForm = () => {
                 medicalHistory: [],
                 doctorName: '',
             });
-            alert('Patient data submitted successfully');
+            toast.success('Patient data submitted successfully');
         } catch (error) {
             console.error('Error submitting patient data:', error);
-            alert('Error submitting patient data. Please try again later.');
+            toast.error('Error submitting patient data. Please try again later.');
         }
     };
 
     return (
-        <form id="pform" onSubmit={handleSubmit}>
-            <div className="left-partition">
-                <input
-                    placeholder="First Name"
-                    type="text"
-                    name="firstName"
-                    value={formData.firstName}
-                    onChange={handleChange}
-                    required
-                />
-                {errors.firstName && <span style={{ color: 'red' }}>{errors.firstName}</span>}
-                <input
-                    placeholder="Last Name"
-                    type="text"
-                    name="lastName"
-                    value={formData.lastName}
-                    onChange={handleChange}
-                />
-                <div id="dropd">
+        <>
+            <form id="pform" onSubmit={handleSubmit}>
+                <div className="left-partition">
                     <input
-                        type="checkbox"
-                        name="bp"
-                        checked={formData.medicalHistory.includes('bp')}
-                        onChange={handleCheckboxChange}
-                    /> BP  <br />
+                        placeholder="First Name"
+                        type="text"
+                        name="firstName"
+                        value={formData.firstName}
+                        onChange={handleChange}
+                        
+                    />
+                    {errors.firstName && <span style={{ color: 'red' }}>{errors.firstName}</span>}
                     <input
-                        type="checkbox"
-                        name="act"
-                        checked={formData.medicalHistory.includes('act')}
-                        onChange={handleCheckboxChange}
-                    /> ACT <br />
-                    <input
-                        type="checkbox"
-                        name="asthama"
-                        checked={formData.medicalHistory.includes('asthama')}
-                        onChange={handleCheckboxChange}
-                    /> Asthma <br />
-                    <input
-                        type="checkbox"
-                        name="thyroid"
-                        checked={formData.medicalHistory.includes('thyroid')}
-                        onChange={handleCheckboxChange}
-                    /> Thyroid  <br />
-                    <input
-                        type="checkbox"
-                        name="dm"
-                        checked={formData.medicalHistory.includes('dm')}
-                        onChange={handleCheckboxChange}
-                    /> Diabetes   <br />
-                    <input
-                        type="checkbox"
-                        name="pregnancy"
-                        checked={formData.medicalHistory.includes('pregnancy')}
-                        onChange={handleCheckboxChange}
-                    /> Pregnant<br />
+                        placeholder="Last Name"
+                        type="text"
+                        name="lastName"
+                        value={formData.lastName}
+                        onChange={handleChange}
+                    />
+                    <div id="dropd">
+                        <input
+                            type="checkbox"
+                            name="bp"
+                            checked={formData.medicalHistory.includes('bp')}
+                            onChange={handleCheckboxChange}
+                        /> BP  <br />
+                        <input
+                            type="checkbox"
+                            name="act"
+                            checked={formData.medicalHistory.includes('act')}
+                            onChange={handleCheckboxChange}
+                        /> ACT <br />
+                        <input
+                            type="checkbox"
+                            name="asthama"
+                            checked={formData.medicalHistory.includes('asthama')}
+                            onChange={handleCheckboxChange}
+                        /> Asthma <br />
+                        <input
+                            type="checkbox"
+                            name="thyroid"
+                            checked={formData.medicalHistory.includes('thyroid')}
+                            onChange={handleCheckboxChange}
+                        /> Thyroid  <br />
+                        <input
+                            type="checkbox"
+                            name="dm"
+                            checked={formData.medicalHistory.includes('dm')}
+                            onChange={handleCheckboxChange}
+                        /> Diabetes   <br />
+                        <input
+                            type="checkbox"
+                            name="pregnancy"
+                            checked={formData.medicalHistory.includes('pregnancy')}
+                            onChange={handleCheckboxChange}
+                        /> Pregnant<br />
+                    </div>
                 </div>
-            </div>
-            <div className="right-partition">
-                <input
-                    placeholder="Contact"
-                    type="text"
-                    name="contacts"
-                    value={formData.contacts}
-                    onChange={handleChange}
-                />
-                {errors.contacts && <span style={{ color: 'red' }}>{errors.contacts}</span>}
-                <input
-                    placeholder="Age"
-                    type="number"
-                    name="age"
-                    value={formData.age}
-                    onChange={handleChange}
-                />
-                {errors.age && <span style={{ color: 'red' }}>{errors.age}</span>}
-                <input
-                    id="date"
-                    placeholder="Date"
-                    type="date"
-                    name="dateOfentry"
-                    value={formData.dateOfentry}
-                    onChange={handleChange}
-                />
-                <select
-                    name="doctorName"
-                    value={formData.doctorName}
-                    onChange={handleChange}
-                >
-                    <option value="null">Doctor</option>
-                    <option value="Dr Ruchi">Dr Ruchi</option>
-                    <option value="Dr Renu">Dr Renu</option>
-                    <option value="Other">Other</option>
-                </select>
-                <button id="subbtn" type="submit">Submit</button>
-            </div>
-        </form>
+                <div className="right-partition">
+                    <input
+                        placeholder="Contact"
+                        type="text"
+                        name="contacts"
+                        value={formData.contacts}
+                        onChange={handleChange}
+                    />
+                    {errors.contacts && <span style={{ color: 'red' }}>{errors.contacts}</span>}
+                    <input
+                        placeholder="Age"
+                        type="number"
+                        name="age"
+                        value={formData.age}
+                        onChange={handleChange}
+                    />
+                    {errors.age && <span style={{ color: 'red' }}>{errors.age}</span>}
+                    <input
+                        id="date"
+                        placeholder="Date"
+                        type="date"
+                        name="dateOfentry"
+                        value={formData.dateOfentry}
+                        onChange={handleChange}
+                    />
+                    <select
+                        name="doctorName"
+                        value={formData.doctorName}
+                        onChange={handleChange}
+                    >
+                        <option value="null">Doctor</option>
+                        <option value="Dr Ruchi">Dr Ruchi</option>
+                        <option value="Dr Renu">Dr Renu</option>
+                        <option value="Other">Other</option>
+                    </select>
+                    <button id="subbtn" type="submit">Submit</button>
+                </div>
+            </form>
+            <ToastContainer  position="top-center"
+             autoClose={3000}
+             hideProgressBar={false}
+             newestOnTop={false}
+             closeOnClick
+             rtl={false}
+             pauseOnFocusLoss
+             draggable
+             pauseOnHover />
+        </>
     );
 };
 
