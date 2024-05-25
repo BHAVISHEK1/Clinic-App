@@ -112,7 +112,7 @@ const ShowAllPatients = () => {
                 )}
             </Modal>
 
-            <Modal
+            <Modal id="editmodal"
                 isOpen={isEditModalOpen}
                 onRequestClose={closeEditModal}
                 contentLabel="Edit Patient"
