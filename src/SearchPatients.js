@@ -14,7 +14,6 @@ const SearchPatients = () => {
     const [doctorOptions, setDoctorOptions] = useState([]);
     const [searchError, setSearchError] = useState('');
     const [editingPatient, setEditingPatient] = useState(null);
-    const [message, setMessage] = useState('');
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     useEffect(() => {
