@@ -126,7 +126,7 @@
     @media screen and (max-width: 600px) {
         #patdetails {
             width:80%; 
-            height:60%;
+            height:40%;
                 /* 90% width for smaller screens */
             
         }
