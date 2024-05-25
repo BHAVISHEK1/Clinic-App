@@ -68,6 +68,13 @@ const ShowAllPatients = () => {
         setSelectedPatient(null);
     };
 
+    const formatDateTime = (dateString) => {
+        const date = new Date(dateString);
+        const formattedDate = `${date.getDate().toString().padStart(2, '0')}/${(date.getMonth() + 1).toString().padStart(2, '0')}/${date.getFullYear()}`;
+        const formattedTime = `${date.getHours().toString().padStart(2, '0')}:${date.getMinutes().toString().padStart(2, '0')}`;
+        return `${formattedDate} ${formattedTime}`;
+    };
+
     return (
         <div id="showallpatients">
             <p>Click on Patient name to see details</p>
@@ -81,23 +88,22 @@ const ShowAllPatients = () => {
                 ))}
             </ul>
 
-            <Modal id=""
+            <Modal id="patdetails"
                 isOpen={isDetailsModalOpen}
                 onRequestClose={closeDetailsModal}
                 contentLabel="Patient Details"
                 className="modal"
                 overlayClassName="overlay"
             >
-                
                 {selectedPatient && (
                     <div id="pcard">
                         <i className="fa fa-times cancel-icon" onClick={closeDetailsModal}></i>
-                        <h3>{selectedPatient.firstName} {selectedPatient.lastName}</h3>
-                        <h5><i className="fa-solid fa-mobile"></i> : <a href={`tel:${selectedPatient.contacts}`}>{selectedPatient.contacts}</a> </h5>
-                        <h5><i className="fa-solid fa-cake-candles"></i> : {selectedPatient.age}</h5>
-                        <h5><i className="fa-solid fa-calendar-days calendar"></i> : {selectedPatient.dateOfentry}</h5>
-                        <h5><i className="fa-solid fa-book-medical"></i> : {selectedPatient.medicalHistory.join(', ')}</h5>
-                        <h5><i className="fa-solid fa-user-doctor"></i>: {selectedPatient.doctorName} </h5>
+                        <h2>{selectedPatient.firstName} {selectedPatient.lastName}</h2>
+                        <h5><i className="fa-solid fa-phone" style={{color:"blue"}}></i> : <a href={`tel:${selectedPatient.contacts}`}>{selectedPatient.contacts}</a></h5>
+                        <h5><i className="fa-solid fa-cake-candles" style={{color:"green"}}></i> : {selectedPatient.age}</h5>
+                        <h5><i className="fa-solid fa-calendar-days calendar" style={{color:"blue"}}></i> : {formatDateTime(selectedPatient.dateOfentry)}</h5>
+                        <h5 className="medhis" style={{color:"red"}}><i className="fa-solid fa-book-medical" style={{color:"red"}}></i> : {selectedPatient.medicalHistory.join(', ')}</h5>
+                        <h5><i className="fa-solid fa-user-doctor" style={{color:"violet"}}></i> : {selectedPatient.doctorName}</h5>
                         <div className="button-container">
                             <button id="edtbtn" onClick={() => handleEditClick(selectedPatient)}>Edit</button>
                             <button id="delbtn" onClick={() => handleDelete(selectedPatient._id, selectedPatient.firstName)}>Delete</button>
@@ -132,4 +138,3 @@ const ShowAllPatients = () => {
 };
 
 export default ShowAllPatients;
-

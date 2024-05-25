@@ -59,60 +59,6 @@
 }
 
 
-#edtbtn{
-    padding: 3px 9px;
-    border-radius: 7px;
-    border: solid rgb(102, 182, 232);
-    max-width: 15%;
-}
-
-#delbtn
-{
-
-    border: 1px solid #ccc;
-    padding: 3px 5px;
-   
-    border-radius: 7px;
-    border: solid rgb(239, 130, 130);
-    max-width: 15%;
-
-}
-
-button{
-    margin: 1px;
-}
-
-.button-container {
-    display: flex;
-    gap: 10px;
-}
-
-.button-container button {
-    flex: 1;
-}
-
-.overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.75);
-    z-index: 1000;
-}
-
-.modal {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: white;
-    padding: 20px;
-    z-index: 1001;
-    border-radius: 4px;
-    max-width: 500px;
-    width: 100%;
-}
 
 
 
@@ -121,20 +67,112 @@ button{
 
 
 
+/* pOP UP*/
+
+ 
 
 
-.cancel-icon {
-    position: absolute;
-    top: 10px;
-    right: 10px;
+    #patdetails {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        right: auto;
+        bottom: auto;
+        margin-right: -50%;
+        transform: translate(-50%, -50%);
+        width: 30%; /* Adjust width as needed */
+        height: 50%; /* Adjust height as needed */
+        max-width: 600px; /* Ensure it doesn't get too large */
+        max-height: 600px; /* Ensure it doesn't get too large */
+        padding: 10px;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        overflow: auto; /* Allows scrolling if content overflows */
+    }
     
-    cursor: pointer;
-    color: red;
-    border: 1px solid black;
-    border-radius: 50%;
-    padding: 3px;
-}
 
-.cancel-icon:hover {
-    color: #ff0000; /* Change color on hover */
-}
+    @media screen and (max-width: 600px) {
+        #patdetails {
+            width:80%; /* 90% width for smaller screens */
+            
+        }
+    }
+
+
+    .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.75);
+        z-index: 1000;
+    }
+    
+    #pcard {
+        display: flex;
+        flex-direction: column;
+        margin-left:10%;
+        align-items: flex-start; /* Align items to the left */
+        text-align: left; /* Align text to the left */
+    }
+    
+    
+    .cancel-icon {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        cursor: pointer;
+    }
+    
+    
+    
+    .button-container {
+        display: flex;
+        justify-content: center; /* Align buttons to the center */
+        width: 100%;
+        margin-top: 20px;
+    }
+    
+    #edtbtn, #delbtn {
+        padding: 10px 20px;
+        margin: 0 5px; /* Adjust margin between buttons if needed */
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        width: 100px; /* Set a fixed width for both buttons */
+        text-align: center; /* Center the text horizontally */
+        
+    }
+    
+    #edtbtn {
+        background-color: #4CAF50;
+        color: white;
+        
+    }
+    
+    #delbtn {
+        background-color: #f44336;
+        color: white;
+        margin-right: 10%;
+    }
+    
+
+
+    
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
+    
+    h5 {
+        margin: 5px 0; /* Reduce the margin between details */
+    }
+    
+    .medhis {
+        white-space: pre-wrap; /* Ensures it respects line breaks if needed */
+    }
+    
+    
+   
