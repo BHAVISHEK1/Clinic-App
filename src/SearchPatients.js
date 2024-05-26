@@ -74,11 +74,11 @@ const SearchPatients = () => {
         setIsModalOpen(false);
     };
 
-    const handleDelete = (id, firstName) => {
+    const handleDelete = async (id, firstName) => {
         const isConfirmed = window.confirm(`Are you sure you want to delete ${firstName}?`);
         if (isConfirmed) {
             try {
-                axios.delete(`https://clinic-backend-4.onrender.com/api/patients/${id}`);
+                await axios.delete(`https://clinic-backend-4.onrender.com/api/patients/${id}`);
                 setSearchResults(prevResults => prevResults.filter(patient => patient._id !== id));
                 toast.success(`Patient ${firstName} deleted successfully`);
             } catch (error) {
@@ -93,7 +93,10 @@ const SearchPatients = () => {
     const handleEditSubmit = (updatedPatient) => {
         setSearchResults(prevResults =>
             prevResults.map(patient =>
-                patient._id === updatedPatient._id ? updatedPatient : patient
+                patient._id === updatedPatient._id ? {
+                    ...updatedPatient,
+                    dateOfentry: formatDate(updatedPatient.dateOfentry) // Ensure date is formatted
+                } : patient
             )
         );
         setEditingPatient(null);
@@ -102,6 +105,7 @@ const SearchPatients = () => {
     };
 
     const formatDate = (dateString) => {
+        if (!dateString) return ''; // Return empty string if no date provided
         const date = new Date(dateString);
         const day = date.getDate().toString().padStart(2, '0');
         const month = (date.getMonth() + 1).toString().padStart(2, '0');
@@ -173,7 +177,7 @@ const SearchPatients = () => {
                                     </div>
                                     <i className="fa-solid fa-user-doctor" style={{ color: "violet" }}></i> : {patient.doctorName}
                                     <br />
-                                </div>
+                                    </div>
                                 <div className="button-containers">
                                     <button id="edtbtns" onClick={() => handleEdit(patient)}>Edit</button>
                                     <button id="delbtns" onClick={() => handleDelete(patient._id, patient.firstName)}>Delete</button>
@@ -185,7 +189,7 @@ const SearchPatients = () => {
             </div>
 
             <Modal
-                isOpen={isModalOpen}                
+                isOpen={isModalOpen}
                 onRequestClose={handleCancelEdit}
                 contentLabel="Edit Patient"
                 className="modal"

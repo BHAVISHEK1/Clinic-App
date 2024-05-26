@@ -3,8 +3,6 @@ import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify'; // Import toast and ToastContainer
 import 'react-toastify/dist/ReactToastify.css'; // Import the styles
 
-
-
 const PatientForm = () => {
     const [formData, setFormData] = useState({
         firstName: '',
@@ -31,12 +29,12 @@ const PatientForm = () => {
             isValid = false;
         }
 
-        if (!/^\d{10}$/.test(formData.contacts)) {
+        if (formData.contacts && !/^\d{10}$/.test(formData.contacts)) {
             toast.error("Enter a Valid 10 digit number");
             isValid = false;
         }
 
-        if (formData.age < 1 || formData.age > 101) {
+        if (formData.age && (formData.age < 1 || formData.age > 101)) {
             toast.error("Enter a Valid age not exceeding 101 years");
             isValid = false;
         }
@@ -80,8 +78,15 @@ const PatientForm = () => {
             return;
         }
 
+        // Ensure optional fields are sent as null if not provided
+        const submissionData = {
+            ...formData,
+            contacts: formData.contacts || null,
+            age: formData.age || null,
+        };
+
         try {
-            await axios.post('https://clinic-backend-4.onrender.com/api/patients', formData);
+            await axios.post('https://clinic-backend-4.onrender.com/api/patients', submissionData);
             setFormData({
                 firstName: '',
                 lastName: '',

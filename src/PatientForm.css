@@ -62,8 +62,8 @@
 }
 
 
-#pform button {
-    padding: 10px 20px;
+#subbtn {
+    padding: 10px;
     background-color: #1e4d6c;
     color: #ffffff;
     border: none;
@@ -80,6 +80,7 @@
     #pform select
     {
         max-width: 90%;
+        
     
     }
 }
@@ -110,3 +111,5 @@
    
     
 }
+
+
