@@ -81,9 +81,24 @@
     {
         max-width: 90%;
         
-    
+        
     }
 }
+
+
+
+@media (max-width: 600px) {
+    #pform
+    {
+        max-width: 90%;
+        
+        
+    }
+}
+
+
+
+
 
 @media (max-width: 600px) {
     .left-partition,
@@ -108,6 +123,4 @@
     font-size: large;
     color: blue;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-   
-    
 }

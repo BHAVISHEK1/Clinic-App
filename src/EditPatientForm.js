@@ -80,13 +80,15 @@ const EditPatientForm = ({ patient, onSubmit, onCancel }) => {
                 contacts: formData.contacts === '' ? null : formData.contacts,
                 age: formData.age === '' ? null : formData.age,
             };
-
+            toast.success("Successful updation");
             const response = await axios.put(`https://clinic-backend-4.onrender.com/api/patients/${patient._id}`, submissionData);
             onSubmit(response.data);
+             
         } catch (error) {
             console.error('Error updating patient:', error);
             toast.error('Error updating patient details');
         }
+        
     };
 
     return (

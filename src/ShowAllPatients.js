@@ -34,6 +34,10 @@ const ShowAllPatients = () => {
         setIsDetailsModalOpen(true);
     };
 
+
+
+
+    
     const handleDelete = async (patientId, patientFirstName) => {
         const confirmDelete = window.confirm(`Are you sure you want to delete ${patientFirstName}?`);
         if (confirmDelete) {
@@ -41,6 +45,7 @@ const ShowAllPatients = () => {
                 await axios.delete(`https://clinic-backend-4.onrender.com/api/patients/${patientId}`);
                 setAllPatients(allPatients.filter(patient => patient._id !== patientId));
                 toast.success(`Patient ${patientFirstName} deleted successfully`);
+                 // Close details modal after successful deletion
             } catch (error) {
                 console.error('Error deleting patient:', error);
                 toast.error('Error deleting patient. Please try again later.');
@@ -48,7 +53,13 @@ const ShowAllPatients = () => {
         } else {
             toast.warning(`Deletion cancelled for ${patientFirstName}`);
         }
+        closeDetailsModal();
     };
+    
+
+
+
+
 
     const handleEditClick = (patient) => {
         setEditingPatient(patient);

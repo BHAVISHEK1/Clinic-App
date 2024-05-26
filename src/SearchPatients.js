@@ -80,7 +80,7 @@ const SearchPatients = () => {
             try {
                 await axios.delete(`https://clinic-backend-4.onrender.com/api/patients/${id}`);
                 setSearchResults(prevResults => prevResults.filter(patient => patient._id !== id));
-                toast.success(`Patient ${firstName} deleted successfully`);
+                toast.success(`Patient ${firstName} successfully deleted`);
             } catch (error) {
                 console.error('Error deleting patient:', error);
                 toast.error('Error deleting patient. Please try again later.');

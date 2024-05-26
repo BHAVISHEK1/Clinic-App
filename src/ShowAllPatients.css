@@ -97,7 +97,7 @@
     @media screen and (max-width: 600px) {
         #editmodal {
             width:80%; 
-            height:45%;
+            height:40%;
         }
     }
 
@@ -127,7 +127,7 @@
     @media screen and (max-width: 600px) {
         #patdetails {
             width:80%; 
-            height:40%;
+            height:45%;
                 /* 90% width for smaller screens */
             
         }
