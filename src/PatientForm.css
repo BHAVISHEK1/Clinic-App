@@ -1,7 +1,7 @@
 /* aDDpaTIENTS */
 
 #pform {
-    
+    max-width: 50%;
     margin: 0 auto;
     padding: 10px;
     padding-left: 10px;
@@ -86,7 +86,27 @@
 
 @media (max-width: 600px) {
     .left-partition,
-    .right-partition {
+.right-partition {
     flex-basis: 50%;
 }
+}
+
+
+#cross {
+    color: red;
+    border: 1px solid red;
+    border-radius: 50px;
+    padding: 3px;
+    font-weight: 100;
+}
+
+#title{
+    position: absolute;
+    left: 31%;
+    top:-2%;
+    font-size: large;
+    color: blue;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   
+    
 }

@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify'; // Import toast and ToastContainer
 import 'react-toastify/dist/ReactToastify.css'; // Import the styles
-import './App.css';
-import './PatientForm.css';
+
+
 
 const PatientForm = () => {
     const [formData, setFormData] = useState({
