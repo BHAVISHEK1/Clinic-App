@@ -105,7 +105,8 @@ const PatientForm = () => {
 
     return (
         <>
-            <form id="pform" onSubmit={handleSubmit}>
+           
+           <form id="pform" onSubmit={handleSubmit}>
                 <div className="left-partition">
                     <input
                         placeholder="First Name"

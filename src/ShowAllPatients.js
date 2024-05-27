@@ -105,8 +105,8 @@ const ShowAllPatients = () => {
             ) : (
                 <>
                     <button id="csvbtn" onClick={handleExportCSV}>Export to CSV</button>
-                    <p>Click on Patient name to see details</p>
-                    <p>Total :{allPatients.length}</p>
+                    <p id="infor" >Click on Patient name to see details</p>
+                    <p id="counts" >Total :{allPatients.length}</p>
                     
                     
                     <ul>
