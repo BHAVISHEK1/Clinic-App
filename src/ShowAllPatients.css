@@ -192,6 +192,23 @@
         margin-right: 10%;
     }
     
+
+
+    #edtbtn:hover{
+
+        background-color: white;
+        color: #4CAF50;
+        border:1px solid #4CAF50 ;
+
+    }
+
+
+    #delbtn:hover{
+        background-color: white;
+        color:#f44336 ;
+        border: 1px solid #f44336;
+    }
+
     h1{
        color: brown;
        font-size:x-large
@@ -214,3 +231,20 @@
     
     
    
+
+    #csvbtn{
+
+        background-color: #4CAF50;
+        color: white;
+        border-style: none;
+        border-radius: 7px;
+        padding: 10px 8px;
+    }
+
+    #csvbtn:hover{
+
+        background-color: white;
+        color:#4CAF50;
+        border: 1px solid rgb(111, 223, 111);
+
+    }

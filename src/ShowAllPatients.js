@@ -100,14 +100,15 @@ const ShowAllPatients = () => {
 
     return (
         <div id="showallpatients">
-            
             {allPatients.length === 0 ? (
                 <p>Patient Database is empty</p>
             ) : (
                 <>
-                    <p>{allPatients.length} Entries of patients</p>
+                    <button id="csvbtn" onClick={handleExportCSV}>Export to CSV</button>
                     <p>Click on Patient name to see details</p>
-                    <button onClick={handleExportCSV}>Export to CSV</button>
+                    <p>Total :{allPatients.length}</p>
+                    
+                    
                     <ul>
                         {allPatients.map(patient => (
                             <li key={patient._id}>
@@ -170,4 +171,3 @@ const ShowAllPatients = () => {
 };
 
 export default ShowAllPatients;
-

@@ -218,6 +218,25 @@
     margin-right: 10%;
 }
 
+
+
+#edtbtns:hover{
+
+    background-color: white;
+    color: #4CAF50;
+    border:1px solid #4CAF50 ;
+
+}
+
+
+#delbtns:hover{
+    background-color: white;
+    color:#f44336 ;
+    border: 1px solid #f44336;
+}
+
+
+
 button{
     margin: 1px;
 }
