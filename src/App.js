@@ -1,6 +1,6 @@
 import Hero from './components/Hero';
 import Navbar from './components/Navbar';
-import Card from './components/Card';
+// import Card from './components/Card';
 import React from 'react';
 import Button from './components/Button'
 
