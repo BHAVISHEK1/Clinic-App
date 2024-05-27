@@ -104,10 +104,16 @@ const ShowAllPatients = () => {
                 <p>Patient Database is empty</p>
             ) : (
                 <>
-                    <button id="csvbtn" onClick={handleExportCSV}>Export to CSV</button>
-                    <p id="infor" >Click on Patient name to see details</p>
-                    <p id="counts" >Total :{allPatients.length}</p>
-
+                    
+                   
+                   
+                    <div class="button-group">
+                    <button id="csvbtn" onClick={handleExportCSV} >Download CSV</button>
+                        <div id="counts">  {allPatients.length} Patients</div>
+                         <i className="fa-solid fa-circle-info"></i> <p id="infor" >Click on Patient name to see details</p>
+                    </div>
+                    
+                   
 
                     <ul>
                         {allPatients.map(patient => (

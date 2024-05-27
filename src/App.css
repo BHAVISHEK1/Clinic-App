@@ -24,7 +24,7 @@
 body{
   padding: 0;
   margin: 0;
-  background-color: #e1e0fa;
+  background-color: white;
 }
 
 /*Hero */
@@ -32,10 +32,18 @@ body{
 
 #ap:hover,#pd:hover,#sp:hover{
   background-color: white;
-  color: #736de3;
-  border: 1px solid #14a2e4;
+  color: #e56565;
+  border: 1px solid #e56565;
+}
+
+#ap:hover,#pd:hover,#sp:active{
+  background-color: white;
+  color: #e56565;
+  border: 1px solid #e56565;
 
 }
+
+
 
 #mainbuttons button {
 
@@ -44,14 +52,14 @@ body{
   color: white;
   border-radius: 7px;
   margin: 5px;
-  padding: 10px;
-  background-color: #14a2e4;
+  padding: 12px 6px;
+  background-color: #e56565;
   
 
 }
 
 .hero {
-  background-color: #b1aee6;
+  background-color: #8984e6;
   padding-top: 3rem;
   margin-bottom: 1rem;
   height: 60px;
@@ -74,7 +82,7 @@ body{
 
 .navbar {
   background-color: #ffffff;
-  border-bottom: 3px solid #ec7ee8;
+  border-bottom: 3px solid #e84de2;
 }
 
 .container {

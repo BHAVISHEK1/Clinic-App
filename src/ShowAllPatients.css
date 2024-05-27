@@ -35,7 +35,7 @@
     border-radius: 5px;
     background-color: #f9f9f9;
     cursor: pointer;
-    color: #0290e8;
+    color: #2fa1e7;
     font-weight: bold;
     font-family: Verdana, Geneva, Tahoma, sans-serif
 }
@@ -228,16 +228,31 @@ h5 {
 }
 
 
+#counts{
+    font-family: Verdana, Geneva, Tahoma, sans-serif; 
+   
+}
 
-
-#csvbtn {
-
+#csvbtn{
+    padding: 8.3px;
+    margin-right: 5px;
     background-color: #4CAF50;
+}
+
+#counts{
+    padding: 6px;
+    background-color: #2fa1e7;
+}
+
+
+
+#csvbtn , #counts{
+
+   
     color: white;
     border-style: none;
     border-radius: 7px;
-    padding: 10px 8px;
-
+    margin-bottom: 5px;
 }
 
 #csvbtn:hover {
@@ -245,5 +260,21 @@ h5 {
     background-color: white;
     color: #4CAF50;
     border: 1px solid rgb(111, 223, 111);
+   
+
+}
+
+
+.button-group {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+#infor,i{
+    color: goldenrod;
+    margin-left: 10px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;  ;
 
 }
