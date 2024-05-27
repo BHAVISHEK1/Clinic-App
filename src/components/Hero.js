@@ -8,7 +8,6 @@ const Hero = ({
   return (
     <section className='hero'>
       <h1 className='title'>{title}</h1>
-      {/* <p className='subtitle'>{subtitle}</p> Add subtitle if needed */}
     </section>
   );
 };

@@ -102,33 +102,8 @@ h2 {
 
 
 @media (max-width: 600px) {
-  h2
-  { 
-    font-size:medium;
-    margin-left: 20px;  
+  h2 {
+    font-size: medium;
+    margin-left: 20px;
   }
-}
-
-
-
-/* CARD */
-
-
-.card {
-  padding: 1.5rem;
-  border-radius: 0.5rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.bg-gray-100 {
-  background-color: #f3f4f6;
-}
-
-
-.bg-white {
-  background-color: #ffffff;
-}
-
-.bg-blue-100 {
-  background-color: #dbeafe;
 }

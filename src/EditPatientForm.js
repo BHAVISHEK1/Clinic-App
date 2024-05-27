@@ -27,19 +27,19 @@ const EditPatientForm = ({ patient, onSubmit, onCancel }) => {
         const newErrors = { firstName: '', contacts: '', age: '' };
 
         if (!formData.firstName) {
-            
+
             toast.error("First Name is required");
             isValid = false;
         }
 
         if (formData.contacts && !/^\d{10}$/.test(formData.contacts)) {
-            
+
             toast.error("Enter a valid 10-digit contact number");
             isValid = false;
         }
 
         if (formData.age && (formData.age < 1 || formData.age > 101)) {
-            
+
             toast.error("Enter a valid age not exceeding 101 years");
             isValid = false;
         }
@@ -74,7 +74,6 @@ const EditPatientForm = ({ patient, onSubmit, onCancel }) => {
         }
 
         try {
-            // Ensure optional fields are sent as null if not provided or empty
             const submissionData = {
                 ...formData,
                 contacts: formData.contacts === '' ? null : formData.contacts,
@@ -83,12 +82,12 @@ const EditPatientForm = ({ patient, onSubmit, onCancel }) => {
             toast.success("Successful updation");
             const response = await axios.put(`https://clinic-backend-4.onrender.com/api/patients/${patient._id}`, submissionData);
             onSubmit(response.data);
-             
+
         } catch (error) {
             console.error('Error updating patient:', error);
             toast.error('Error updating patient details');
         }
-        
+
     };
 
     return (
@@ -190,16 +189,16 @@ const EditPatientForm = ({ patient, onSubmit, onCancel }) => {
                     <button id="subbtn" type="submit">Edit Details</button>
                 </div>
             </form>
-            <ToastContainer 
-            position="top-center"
-            autoClose={3000} 
-            hideProgressBar={false} 
-            newestOnTop={false} 
-            closeOnClick rtl={false} 
-            pauseOnFocusLoss 
-            draggable 
-            pauseOnHover
-             />
+            <ToastContainer
+                position="top-center"
+                autoClose={3000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+            />
         </>
     );
 };

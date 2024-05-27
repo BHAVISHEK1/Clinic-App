@@ -6,7 +6,7 @@
     padding: 10px;
     padding-left: 10px;
     border-radius: 5px;
-    background-color:#d9e8f6;
+    background-color: #d9e8f6;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -76,23 +76,21 @@
 }
 
 @media (max-width: 600px) {
+
     #pform,
-    #pform select
-    {
+    #pform select {
         max-width: 90%;
-        
-        
+
+
     }
 }
 
 
 
 @media (max-width: 600px) {
-    #pform
-    {
+    #pform {
         max-width: 90%;
-        
-        
+
     }
 }
 
@@ -101,10 +99,11 @@
 
 
 @media (max-width: 600px) {
+
     .left-partition,
-.right-partition {
-    flex-basis: 50%;
-}
+    .right-partition {
+        flex-basis: 50%;
+    }
 }
 
 
@@ -116,11 +115,11 @@
     font-weight: 100;
 }
 
-#title{
+#title {
     position: absolute;
     left: 31%;
-    top:-2%;
+    top: -2%;
     font-size: large;
     color: blue;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }

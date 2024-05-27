@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './SearchPatients.css';
 import Modal from 'react-modal';
-import { ToastContainer, toast } from 'react-toastify'; // Import toast and ToastContainer
-import 'react-toastify/dist/ReactToastify.css'; // Import the styles
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import EditPatientForm from './EditPatientForm';
 
 const SearchPatients = () => {
@@ -95,7 +95,7 @@ const SearchPatients = () => {
             prevResults.map(patient =>
                 patient._id === updatedPatient._id ? {
                     ...updatedPatient,
-                    dateOfentry: formatDate(updatedPatient.dateOfentry) // Ensure date is formatted
+                    dateOfentry: formatDate(updatedPatient.dateOfentry)
                 } : patient
             )
         );
@@ -105,7 +105,7 @@ const SearchPatients = () => {
     };
 
     const formatDate = (dateString) => {
-        if (!dateString) return ''; // Return empty string if no date provided
+        if (!dateString) return '';
         const date = new Date(dateString);
         const day = date.getDate().toString().padStart(2, '0');
         const month = (date.getMonth() + 1).toString().padStart(2, '0');
@@ -177,7 +177,7 @@ const SearchPatients = () => {
                                     </div>
                                     <i className="fa-solid fa-user-doctor" style={{ color: "violet" }}></i> : {patient.doctorName}
                                     <br />
-                                    </div>
+                                </div>
                                 <div className="button-containers">
                                     <button id="edtbtns" onClick={() => handleEdit(patient)}>Edit</button>
                                     <button id="delbtns" onClick={() => handleDelete(patient._id, patient.firstName)}>Delete</button>

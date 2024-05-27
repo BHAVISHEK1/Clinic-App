@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { ToastContainer, toast } from 'react-toastify'; // Import toast and ToastContainer
-import 'react-toastify/dist/ReactToastify.css'; // Import the styles
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const PatientForm = () => {
     const [formData, setFormData] = useState({
@@ -9,7 +9,7 @@ const PatientForm = () => {
         lastName: '',
         contacts: '',
         age: '',
-        dateOfentry: '', // Initialize to empty string
+        dateOfentry: '',
         medicalHistory: [],
         doctorName: '',
     });
@@ -47,13 +47,13 @@ const PatientForm = () => {
         const { name, value, type } = e.target;
 
         if (type === 'date') {
-            // For date input, handle separately to set empty string if no date selected
+
             setFormData((prevData) => ({
                 ...prevData,
-                [name]: value || '', // Set to empty string if no date selected
+                [name]: value || '',
             }));
         } else {
-            // For other inputs, handle normally
+
             setFormData((prevData) => ({
                 ...prevData,
                 [name]: value,
@@ -92,7 +92,7 @@ const PatientForm = () => {
                 lastName: '',
                 contacts: '',
                 age: '',
-                dateOfentry: '', // Reset date to empty string after submission
+                dateOfentry: '',
                 medicalHistory: [],
                 doctorName: '',
             });
@@ -105,8 +105,8 @@ const PatientForm = () => {
 
     return (
         <>
-           
-           <form id="pform" onSubmit={handleSubmit}>
+
+            <form id="pform" onSubmit={handleSubmit}>
                 <div className="left-partition">
                     <input
                         placeholder="First Name"
@@ -114,7 +114,7 @@ const PatientForm = () => {
                         name="firstName"
                         value={formData.firstName}
                         onChange={handleChange}
-                        
+
                     />
                     {errors.firstName && <span style={{ color: 'red' }}>{errors.firstName}</span>}
                     <input
@@ -201,15 +201,15 @@ const PatientForm = () => {
                     <button id="subbtn" type="submit">Register Patient</button>
                 </div>
             </form>
-            <ToastContainer  position="top-center"
-             autoClose={3000}
-             hideProgressBar={false}
-             newestOnTop={false}
-             closeOnClick
-             rtl={false}
-             pauseOnFocusLoss
-             draggable
-             pauseOnHover />
+            <ToastContainer position="top-center"
+                autoClose={3000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover />
         </>
     );
 };

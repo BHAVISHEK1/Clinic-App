@@ -54,7 +54,7 @@ const ShowAllPatients = () => {
     const handleEditClick = (patient) => {
         setEditingPatient(patient);
         setIsEditModalOpen(true);
-        setIsDetailsModalOpen(false); // Close details modal when editing
+        setIsDetailsModalOpen(false);
     };
 
     const handleEditSubmit = (updatedPatient) => {
@@ -107,8 +107,8 @@ const ShowAllPatients = () => {
                     <button id="csvbtn" onClick={handleExportCSV}>Export to CSV</button>
                     <p id="infor" >Click on Patient name to see details</p>
                     <p id="counts" >Total :{allPatients.length}</p>
-                    
-                    
+
+
                     <ul>
                         {allPatients.map(patient => (
                             <li key={patient._id}>
@@ -132,11 +132,11 @@ const ShowAllPatients = () => {
                     <div id="pcard">
                         <i className="fa fa-times cancel-icon" onClick={closeDetailsModal}></i>
                         <h1>{selectedPatient.firstName} {selectedPatient.lastName}</h1>
-                        <h5><i className="fa-solid fa-phone" style={{color:"blue"}}></i> : <a href={`tel:${selectedPatient.contacts}`}>{selectedPatient.contacts}</a></h5>
-                        <h5><i className="fa-solid fa-cake-candles" style={{color:"green"}}></i> : {selectedPatient.age} Years</h5>
-                        <h5><i className="fa-solid fa-calendar-days calendar" style={{color:"blue"}}></i> : {formatDate(selectedPatient.dateOfentry)}</h5>
-                        <h5><i className="fa-solid fa-book-medical" style={{color:"red"}}></i> : {selectedPatient.medicalHistory.join(', ')}</h5>
-                        <h5><i className="fa-solid fa-user-doctor" style={{color:"violet"}}></i> : {selectedPatient.doctorName}</h5>
+                        <h5><i className="fa-solid fa-phone" style={{ color: "blue" }}></i> : <a href={`tel:${selectedPatient.contacts}`}>{selectedPatient.contacts}</a></h5>
+                        <h5><i className="fa-solid fa-cake-candles" style={{ color: "green" }}></i> : {selectedPatient.age} Years</h5>
+                        <h5><i className="fa-solid fa-calendar-days calendar" style={{ color: "blue" }}></i> : {formatDate(selectedPatient.dateOfentry)}</h5>
+                        <h5><i className="fa-solid fa-book-medical" style={{ color: "red" }}></i> : {selectedPatient.medicalHistory.join(', ')}</h5>
+                        <h5><i className="fa-solid fa-user-doctor" style={{ color: "violet" }}></i> : {selectedPatient.doctorName}</h5>
                         <div className="button-container">
                             <button id="edtbtn" onClick={() => handleEditClick(selectedPatient)}>Edit</button>
                             <button id="delbtn" onClick={() => handleDelete(selectedPatient._id, selectedPatient.firstName)}>Delete</button>
@@ -155,7 +155,7 @@ const ShowAllPatients = () => {
                 {editingPatient && <EditPatientForm patient={editingPatient} onSubmit={handleEditSubmit} onCancel={closeEditModal} />}
             </Modal>
 
-            <ToastContainer 
+            <ToastContainer
                 position="top-center"
                 autoClose={5000}
                 hideProgressBar={false}
