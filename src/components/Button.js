@@ -41,9 +41,9 @@ const Button = () => {
     <>
       <div>
         <div id="mainbuttons" >
-          <button onClick={handleAddPatientClick}>Add Patient</button>
-          <button onClick={handleSearchPatientClick}>Search Patient</button>
-          <button onClick={handleShowAllPatientsClick}>Show All Patients</button>
+          <button id="ap" onClick={handleAddPatientClick}>Add Patient</button>
+          <button id="sp" onClick={handleSearchPatientClick}>Search Patient</button>
+          <button id="pd" onClick={handleShowAllPatientsClick}>Patient Database</button>
         </div>
         <div>
           {displayAddPatient && <PatientForm />}
