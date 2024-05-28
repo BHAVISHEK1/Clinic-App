@@ -112,9 +112,7 @@ const ShowAllPatients = () => {
                         <div id="counts">  {allPatients.length} Patients</div>
                          <i className="fa-solid fa-circle-info"></i> <p id="infor" >Click on Patient name to see or Edit details</p>
                     </div>
-                    
                    
-
                     <ul>
                         {allPatients.map(patient => (
                             <li key={patient._id}>

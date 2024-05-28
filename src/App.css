@@ -83,6 +83,12 @@ body{
 .navbar {
   background-color: #ffffff;
   border-bottom: 3px solid #e84de2;
+  position: fixed; /* This makes the navbar stay fixed in its position */
+  top: 0; /* Position it at the top of the viewport */
+  width: 100%; /* Make it take the full width of the viewport */
+  background-color: #ffffff;
+  border-bottom: 3px solid #e84de2;
+  z-index: 1000; /* Ensure the navbar stays above other content */
 }
 
 .container {

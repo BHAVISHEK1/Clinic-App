@@ -180,7 +180,7 @@ const SearchPatients = () => {
                                     <br />
                                 </div>
                                 <div className="button-containers">
-                                    {/* <button id="edtbtns" onClick={() => handleEdit(patient)}>Edit</button> */}
+                                    {/* <button id="edtbtns" onClick={() => handleEdit(patient)} >Edit</button> */}
                                     <button id="delbtns" onClick={() => handleDelete(patient._id, patient.firstName)}>Delete</button>
                                 </div>
                             </li>
