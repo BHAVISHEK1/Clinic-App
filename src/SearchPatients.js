@@ -42,7 +42,7 @@ const SearchPatients = () => {
         try {
             let endpoint;
             if (searchType === 'patient') {
-                endpoint = `https://clinic-backend-4.onrender.com/api/patients/search?firstName=${searchQuery.toLowerCase()}`;
+                endpoint = `https://clinic-backend-4.onrender.com/api/patients/search?firstName=${searchQuery.trim().toLowerCase()}`;
             } else if (searchType === 'doctor') {
                 endpoint = `https://clinic-backend-4.onrender.com/api/patients/search?doctorName=${searchQuery}`;
             }
@@ -54,6 +54,7 @@ const SearchPatients = () => {
                 dateOfentry: formatDate(patient.dateOfentry)
             })));
             if (response.data.length === 0) {
+                setSearchError('Patient not found');
                 toast.error('Patient not found');
             } else {
                 setSearchError('');
@@ -219,4 +220,3 @@ const SearchPatients = () => {
 };
 
 export default SearchPatients;
-

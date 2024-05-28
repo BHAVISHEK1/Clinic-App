@@ -29,6 +29,11 @@ const PatientForm = () => {
             isValid = false;
         }
 
+        if (!formData.lastName) {
+            toast.error("Last Name is required");
+            isValid = false;
+        }
+
         if (formData.contacts && !/^\d{10}$/.test(formData.contacts)) {
             toast.error("Enter a Valid 10 digit number");
             isValid = false;
