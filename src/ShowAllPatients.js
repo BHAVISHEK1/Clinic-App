@@ -110,7 +110,7 @@ const ShowAllPatients = () => {
                     <div class="button-group">
                     <button id="csvbtn" onClick={handleExportCSV} >Download CSV</button>
                         <div id="counts">  {allPatients.length} Patients</div>
-                         <i className="fa-solid fa-circle-info"></i> <p id="infor" >Click on Patient name to see details</p>
+                         <i className="fa-solid fa-circle-info"></i> <p id="infor" >Click on Patient name to see or Edit details</p>
                     </div>
                     
                    
