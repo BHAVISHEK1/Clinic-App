@@ -7,7 +7,11 @@ import Button from './components/Button'
 const App = () => {
   return (
 
+
     <>
+
+
+    
      <div>
       <Navbar />
       <Hero />
